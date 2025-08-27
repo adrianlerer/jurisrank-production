@@ -1,7 +1,8 @@
 [build]
-  command = "echo 'No dependencies to install - using Python stdlib only'"
-  functions = "api"
+  command = "ls -la && echo 'JurisRank API ready - no build required'"
+  functions = "api" 
   publish = "."
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."
 
 [build.environment]
   PYTHON_VERSION = "3.9"

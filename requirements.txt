@@ -1,4 +1,0 @@
-# JurisRank API - Netlify Serverless Functions
-# ==========================================
-# No external dependencies required
-# All functions use Python standard library only
