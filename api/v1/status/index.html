@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JurisRank API Status</title>
+</head>
+<body>
+    <script>
+        const statusData = {
+            "status": "operational",
+            "version": "1.0.0-netlify",
+            "environment": "production",
+            "timestamp": new Date().toISOString(),
+            "uptime_guarantee": "99.9%",
+            "maintenance_free": true,
+            "endpoints": {
+                "health": "/health",
+                "status": "/api/v1/status",
+                "register": "/api/v1/auth/register",
+                "authority": "/api/v1/jurisprudence/authority",
+                "search": "/api/v1/precedents/search",
+                "compare": "/api/v1/compare/systems",
+                "docs": "/docs"
+            }
+        };
+        
+        document.write('<pre>' + JSON.stringify(statusData, null, 2) + '</pre>');
+    </script>
+</body>
+</html>

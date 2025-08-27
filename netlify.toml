@@ -1,11 +1,13 @@
 [build]
   publish = "."
 
-[functions]
-  directory = "api"
-
-# Start with just one redirect to test
+# Static file routing - no serverless functions needed
 [[redirects]]
   from = "/health"
-  to = "/.netlify/functions/health"
+  to = "/health/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/api/v1/status"
+  to = "/api/v1/status/index.html"
   status = 200
