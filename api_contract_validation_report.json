@@ -1,5 +1,5 @@
 {
-  "validation_timestamp": "2025-08-27T17:45:53.546137",
+  "validation_timestamp": "2025-08-27T17:58:12.855852",
   "target_url": "https://5000-i09td971cyg7b4ytmaaxl.e2b.dev",
   "total_tests": 14,
   "passed": 13,
@@ -13,12 +13,12 @@
       "message": "Successfully connected to https://5000-i09td971cyg7b4ytmaaxl.e2b.dev",
       "details": {
         "status_code": 200,
-        "response_time": "0.073s",
+        "response_time": "0.065s",
         "headers": {
           "Content-Length": "98",
           "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'",
           "content-type": "application/json",
-          "date": "Wed, 27 Aug 2025 17:45:52 GMT",
+          "date": "Wed, 27 Aug 2025 17:58:12 GMT",
           "referrer-policy": "strict-origin-when-cross-origin",
           "server": "Werkzeug/3.1.3 Python/3.12.11",
           "x-content-type-options": "nosniff",
@@ -28,7 +28,7 @@
           "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
         }
       },
-      "execution_time": 0.07334256172180176
+      "execution_time": 0.06502532958984375
     },
     {
       "test": "Security Header: Content-Security-Policy",
@@ -92,6 +92,7 @@
         "endpoints": {
           "authority": "/api/v1/jurisprudence/authority",
           "compare": "/api/v1/compare/systems",
+          "openapi": "/api/v1/openapi.json",
           "register": "/api/v1/auth/register",
           "search": "/api/v1/precedents/search"
         },
@@ -111,7 +112,7 @@
           "details": "The requested endpoint does not exist",
           "message": "Resource not found",
           "path": "/nonexistent",
-          "timestamp": "2025-08-27T17:45:52.887806"
+          "timestamp": "2025-08-27T17:58:12.233927"
         }
       },
       "execution_time": null
@@ -128,10 +129,10 @@
     {
       "test": "Health Endpoint Performance",
       "status": "PASS",
-      "message": "Average response time: 0.015s",
+      "message": "Average response time: 0.013s",
       "details": {
-        "average_ms": "15.5",
-        "max_ms": "17.6",
+        "average_ms": "13.1",
+        "max_ms": "15.3",
         "samples": 5
       },
       "execution_time": null
@@ -160,7 +161,7 @@
       "message": "OpenAPI 3.0 schema generated successfully",
       "details": {
         "schema_file": "openapi_schema.json",
-        "endpoints_documented": 5,
+        "endpoints_documented": 6,
         "api_version": "1.0.0"
       },
       "execution_time": null

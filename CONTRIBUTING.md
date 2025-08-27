@@ -58,6 +58,10 @@ cd jurisrank-core
 
 # Crear rama para tu feature
 git checkout -b feature/nueva-funcionalidad
+
+# Instalar dependencias de desarrollo
+pip install -r requirements.txt
+python -m pytest tests/ -v  # Verificar tests existentes
 ```
 
 #### **2. Desarrollo**
@@ -66,31 +70,121 @@ git checkout -b feature/nueva-funcionalidad
 - Incluye tests cuando sea aplicable
 - Verifica que tu código pase las pruebas existentes
 
-#### **3. Pull Request**
+#### **3. ⚡ API Contract Testing (OBLIGATORIO)**
+Antes de enviar tu PR, **DEBES** correr las pruebas de contrato de API:
+
+```bash
+# Ejecutar suite completa de validación
+python test_api_contract_validation.py
+
+# Resultado esperado: Success Rate > 90%
+# ✅ DNS/TLS Connectivity
+# ✅ Security Headers (5/6)  
+# ✅ API Contract Compliance
+# ✅ Error Handling
+# ✅ Performance (<100ms)
+# ✅ Content Type Validation
+```
+
+#### **4. 🔧 Tests de Desarrollo Obligatorios**
+```bash
+# Tests unitarios básicos
+python -m pytest tests/test_basic.py -v
+
+# Tests de integración
+python test_integration.py
+
+# Tests de rendimiento
+python test_performance.py
+
+# Validación de documentación
+python test_documentation.py
+
+# Tests avanzados (Patent P7)
+python test_advanced_ingestion.py
+python test_scraping_simulation.py
+```
+
+#### **5. Pull Request**
 - Crea un PR descriptivo con:
-  - Título claro y conciso
+  - Título claro y conciso siguiendo [Conventional Commits](https://www.conventionalcommits.org/)
   - Descripción detallada de cambios
+  - **RESULTADO DE TESTS DE CONTRATO** (obligatorio)
   - Screenshots si aplica
   - Referencias a issues relacionados
 
-#### **4. Code Review**
+**Ejemplo de título PR:**
+```
+feat(api): add rate limiting for authentication endpoints
+
+- Implement 10 rpm limit for /auth/register
+- Add structured error responses for rate limit violations  
+- Include Retry-After headers
+- Update API contract validation tests
+
+Contract Test Results: ✅ 13/14 passed (92.9%)
+```
+
+#### **6. Code Review**
 - Responde constructivamente a feedback
 - Realiza cambios solicitados
+- **Re-ejecuta tests de contrato** después de cambios
 - Mantén la discusión enfocada y profesional
 
 ### 🎯 **Estándares de Calidad**
 
-#### **Código**
+#### **🔧 Código**
 - Documentación completa en docstrings
 - Cumplimiento con estándares de estilo (PEP 8 para Python)
 - Tests unitarios con >80% cobertura
 - Compatibilidad con versiones soportadas
 
-#### **Documentación**
+#### **📚 Documentación**
 - Lenguaje claro y profesional
 - Ejemplos prácticos y funcionables
 - Formato Markdown consistente
 - Bilingüe (Español/Inglés) cuando sea relevante
+
+#### **🛡️ Seguridad y API Contract**
+**OBLIGATORIO para desarrolladores externos:**
+- Tests de contrato API con >90% success rate
+- Validación de security headers
+- Structured error responses siguiendo el estándar
+- Performance benchmarks <100ms para endpoints críticos
+- OpenAPI schema compliance
+
+#### **🔍 Guía de Testing para Desarrolladores**
+```bash
+# 1. Setup del entorno de testing
+python -m venv venv_testing
+source venv_testing/bin/activate  # Linux/Mac
+pip install -r requirements.txt
+
+# 2. Correr tests básicos
+python -m pytest tests/ -v --cov=src --cov-report=html
+
+# 3. Validación completa de contrato API
+python test_api_contract_validation.py
+
+# 4. Tests específicos por componente
+python test_integration.py          # Integración con mock server
+python test_performance.py         # Benchmarks de rendimiento  
+python test_advanced_ingestion.py  # Patent P7 compliance
+python test_scraping_simulation.py # Multi-jurisdictional testing
+
+# 5. Validación de documentación
+python test_documentation.py       # Docs completeness check
+```
+
+#### **📊 Métricas de Calidad Requeridas**
+| Métrica | Mínimo Requerido | Objetivo |
+|---------|------------------|----------|
+| **Test Coverage** | >80% | >95% |
+| **API Contract Success** | >90% | >95% |
+| **Performance (Health)** | <200ms | <100ms |
+| **Security Headers** | 4/6 | 6/6 |
+| **Error Structure** | JSON structured | Full compliance |
+| **Documentation** | All public APIs | Complete + examples |
 
 ### 🛡️ **Código de Conducta**
 
@@ -158,6 +252,10 @@ cd jurisrank-core
 
 # Create branch for your feature
 git checkout -b feature/new-functionality
+
+# Install development dependencies
+pip install -r requirements.txt
+python -m pytest tests/ -v  # Verify existing tests
 ```
 
 #### **2. Development**
@@ -166,31 +264,121 @@ git checkout -b feature/new-functionality
 - Include tests when applicable
 - Verify your code passes existing tests
 
-#### **3. Pull Request**
+#### **3. ⚡ API Contract Testing (MANDATORY)**
+Before submitting your PR, you **MUST** run the API contract tests:
+
+```bash
+# Run complete validation suite
+python test_api_contract_validation.py
+
+# Expected result: Success Rate > 90%
+# ✅ DNS/TLS Connectivity
+# ✅ Security Headers (5/6)  
+# ✅ API Contract Compliance
+# ✅ Error Handling
+# ✅ Performance (<100ms)
+# ✅ Content Type Validation
+```
+
+#### **4. 🔧 Mandatory Development Tests**
+```bash
+# Basic unit tests
+python -m pytest tests/test_basic.py -v
+
+# Integration tests
+python test_integration.py
+
+# Performance tests
+python test_performance.py
+
+# Documentation validation
+python test_documentation.py
+
+# Advanced tests (Patent P7)
+python test_advanced_ingestion.py
+python test_scraping_simulation.py
+```
+
+#### **5. Pull Request**
 - Create a descriptive PR with:
-  - Clear and concise title
+  - Clear and concise title following [Conventional Commits](https://www.conventionalcommits.org/)
   - Detailed description of changes
+  - **CONTRACT TEST RESULTS** (mandatory)
   - Screenshots if applicable
   - References to related issues
 
-#### **4. Code Review**
+**PR Title Example:**
+```
+feat(api): add rate limiting for authentication endpoints
+
+- Implement 10 rpm limit for /auth/register
+- Add structured error responses for rate limit violations  
+- Include Retry-After headers
+- Update API contract validation tests
+
+Contract Test Results: ✅ 13/14 passed (92.9%)
+```
+
+#### **6. Code Review**
 - Respond constructively to feedback
 - Make requested changes
+- **Re-run contract tests** after changes
 - Keep discussion focused and professional
 
 ### 🎯 **Quality Standards**
 
-#### **Code**
+#### **🔧 Code**
 - Complete documentation in docstrings
 - Compliance with style standards (PEP 8 for Python)
 - Unit tests with >80% coverage
 - Compatibility with supported versions
 
-#### **Documentation**
+#### **📚 Documentation**
 - Clear and professional language
 - Practical and functional examples
 - Consistent Markdown format
 - Bilingual (Spanish/English) when relevant
+
+#### **🛡️ Security and API Contract**
+**MANDATORY for external developers:**
+- API contract tests with >90% success rate
+- Security headers validation
+- Structured error responses following standard
+- Performance benchmarks <100ms for critical endpoints
+- OpenAPI schema compliance
+
+#### **🔍 Testing Guide for Developers**
+```bash
+# 1. Testing environment setup
+python -m venv venv_testing
+source venv_testing/bin/activate  # Linux/Mac
+pip install -r requirements.txt
+
+# 2. Run basic tests
+python -m pytest tests/ -v --cov=src --cov-report=html
+
+# 3. Complete API contract validation
+python test_api_contract_validation.py
+
+# 4. Component-specific tests
+python test_integration.py          # Integration with mock server
+python test_performance.py         # Performance benchmarks  
+python test_advanced_ingestion.py  # Patent P7 compliance
+python test_scraping_simulation.py # Multi-jurisdictional testing
+
+# 5. Documentation validation
+python test_documentation.py       # Docs completeness check
+```
+
+#### **📊 Required Quality Metrics**
+| Metric | Minimum Required | Target |
+|--------|------------------|---------|
+| **Test Coverage** | >80% | >95% |
+| **API Contract Success** | >90% | >95% |
+| **Performance (Health)** | <200ms | <100ms |
+| **Security Headers** | 4/6 | 6/6 |
+| **Error Structure** | JSON structured | Full compliance |
+| **Documentation** | All public APIs | Complete + examples |
 
 ### 🛡️ **Code of Conduct**
 
