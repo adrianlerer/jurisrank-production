@@ -103,8 +103,8 @@
 ### **Development Requirements**
 ```bash
 # Quick setup for contributors
-git clone https://github.com/adrianlerer/jurisrank-core.git
-cd jurisrank-core
+git clone https://github.com/adrianlerer/jurisrank-production.git
+cd jurisrank-production
 pip install -r requirements.txt
 
 # Run mandatory contract tests

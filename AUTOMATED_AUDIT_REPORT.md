@@ -82,7 +82,7 @@ This automated audit report provides comprehensive validation of JurisRank's rea
 - **Live API:** https://5000-i09td971cyg7b4ytmaaxl.e2b.dev
 - **Documentation:** https://5000-i09td971cyg7b4ytmaaxl.e2b.dev/docs
 - **OpenAPI Schema:** https://5000-i09td971cyg7b4ytmaaxl.e2b.dev/api/v1/openapi.json
-- **Repository:** https://github.com/adrianlerer/jurisrank-core
+- **Repository:** https://github.com/adrianlerer/jurisrank-production
 
 ---
 

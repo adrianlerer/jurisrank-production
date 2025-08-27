@@ -3,11 +3,11 @@
 ### Plataforma de Análisis Jurisprudencial Evolutivo
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Contract](https://img.shields.io/badge/API%20Contract-92.9%25-brightgreen)](https://github.com/adrianlerer/jurisrank-core)
-[![Security Headers](https://img.shields.io/badge/Security%20Headers-5%2F6-green)](https://github.com/adrianlerer/jurisrank-core/blob/main/SECURITY_CHECKLIST.md)
+[![API Contract](https://img.shields.io/badge/API%20Contract-92.9%25-brightgreen)](https://github.com/adrianlerer/jurisrank-production)
+[![Security Headers](https://img.shields.io/badge/Security%20Headers-5%2F6-green)](https://github.com/adrianlerer/jurisrank-production/blob/main/SECURITY_CHECKLIST.md)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-3.0.1-blue)](https://5000-i09td971cyg7b4ytmaaxl.e2b.dev/docs)
-[![Release](https://img.shields.io/badge/Release-v0.9.0--open-success)](https://github.com/adrianlerer/jurisrank-core/releases)
-[![External Validation](https://img.shields.io/badge/External%20Validation-✅%20Verified-brightgreen)](https://github.com/adrianlerer/jurisrank-core/blob/main/EXTERNAL_ACCESS_VERIFICATION_REPORT.md)
+[![Release](https://img.shields.io/badge/Release-v0.9.0--open-success)](https://github.com/adrianlerer/jurisrank-production/releases)
+[![External Validation](https://img.shields.io/badge/External%20Validation-✅%20Verified-brightgreen)](https://github.com/adrianlerer/jurisrank-production/blob/main/EXTERNAL_ACCESS_VERIFICATION_REPORT.md)
 
 ---
 
@@ -69,7 +69,7 @@ JurisRank implementa una estrategia de penetración de mercado inspirada en el m
 **🧪 Test Yourself:**
 ```bash
 # Run external validation
-bash <(curl -fsSL https://raw.githubusercontent.com/adrianlerer/jurisrank-core/main/examples/jurisrank_agent_test.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/adrianlerer/jurisrank-production/main/examples/jurisrank_agent_test.sh)
 ```
 
 ### 🤝 **Únete a la Comunidad**
@@ -136,8 +136,8 @@ JurisRank implements a market penetration strategy inspired by the "Intel Inside
 
 #### Option 1: From Source (Recommended for now)
 ```bash
-git clone https://github.com/adrianlerer/jurisrank-core.git
-cd jurisrank-core
+git clone https://github.com/adrianlerer/jurisrank-production.git
+cd jurisrank-production
 pip install -e .
 ```
 
@@ -213,7 +213,7 @@ for precedent in precedents:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🔗 **Links**
-- **Repository**: [https://github.com/adrianlerer/jurisrank-core](https://github.com/adrianlerer/jurisrank-core)
+- **Repository**: [https://github.com/adrianlerer/jurisrank-production](https://github.com/adrianlerer/jurisrank-production)
 - **SSRN Papers**: Research publications establishing intellectual priority
 - **API Access**: Completely free, no registration required for basic usage
 

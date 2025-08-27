@@ -22,7 +22,7 @@ curl -sS https://5000-ihpc0zttjgtqrprr5t3vr.e2b.dev/api/v1/status
 
 ```bash
 # Run full external validation test
-bash <(curl -fsSL https://raw.githubusercontent.com/adrianlerer/jurisrank-core/main/examples/jurisrank_agent_test.sh) https://5000-ihpc0zttjgtqrprr5t3vr.e2b.dev
+bash <(curl -fsSL https://raw.githubusercontent.com/adrianlerer/jurisrank-production/main/examples/jurisrank_agent_test.sh) https://5000-ihpc0zttjgtqrprr5t3vr.e2b.dev
 ```
 
 **Expected Result:** 🎉 100% Success Rate (7/7 tests passed)
@@ -30,7 +30,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/adrianlerer/jurisrank-core/m
 ## 📊 Local Verification
 
 ```bash
-# From your local jurisrank-core directory
+# From your local jurisrank-production directory
 python3 verify_setup.py
 ```
 

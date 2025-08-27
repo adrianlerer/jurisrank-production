@@ -1,6 +1,6 @@
 # 🔍 JurisRank – External Audit Report (Third-Party Style)
 
-**Repository:** [jurisrank-core](https://github.com/adrianlerer/jurisrank-core)  
+**Repository:** [jurisrank-production](https://github.com/adrianlerer/jurisrank-production)  
 **Release Target:** v0.9.0-open  
 **Date:** 2025-08-27  
 **Auditor Role:** Independent verification of public readiness  

@@ -40,8 +40,8 @@ pip install jurisrank[dev]
 ### 2. Desde el Código Fuente
 ```bash
 # Clonar repositorio
-git clone https://github.com/adrianlerer/jurisrank-core.git
-cd jurisrank-core
+git clone https://github.com/adrianlerer/jurisrank-production.git
+cd jurisrank-production
 
 # Crear entorno virtual
 python -m venv venv
@@ -58,7 +58,7 @@ pip install -e .
 ¿Problemas con la instalación?
 
 - 📧 **Email**: install-support@jurisrank.io
-- 💬 **GitHub Issues**: [Reportar problema](https://github.com/adrianlerer/jurisrank-core/issues)
+- 💬 **GitHub Issues**: [Reportar problema](https://github.com/adrianlerer/jurisrank-production/issues)
 - 📚 **Documentación**: https://docs.jurisrank.net/installation
 
 ---

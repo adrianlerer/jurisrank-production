@@ -53,8 +53,8 @@ Al contribuir, aceptas que tu contribución:
 #### **1. Setup Inicial**
 ```bash
 # Fork el repositorio
-git clone https://github.com/tu-usuario/jurisrank-core.git
-cd jurisrank-core
+git clone https://github.com/tu-usuario/jurisrank-production.git
+cd jurisrank-production
 
 # Crear rama para tu feature
 git checkout -b feature/nueva-funcionalidad
@@ -247,8 +247,8 @@ By contributing, you agree that your contribution:
 #### **1. Initial Setup**
 ```bash
 # Fork the repository
-git clone https://github.com/your-username/jurisrank-core.git
-cd jurisrank-core
+git clone https://github.com/your-username/jurisrank-production.git
+cd jurisrank-production
 
 # Create branch for your feature
 git checkout -b feature/new-functionality
@@ -394,7 +394,7 @@ This project adheres to the [Code of Conduct](CODE_OF_CONDUCT.md). By participat
 
 ## 🔗 **Enlaces Útiles / Useful Links**
 
-- **Repository**: [https://github.com/adrianlerer/jurisrank-core](https://github.com/adrianlerer/jurisrank-core)
+- **Repository**: [https://github.com/adrianlerer/jurisrank-production](https://github.com/adrianlerer/jurisrank-production)
 - **API Documentation**: `API_DOCUMENTATION.md`
 - **Security Policy**: `SECURITY.md`
 - **Code of Conduct**: `CODE_OF_CONDUCT.md`

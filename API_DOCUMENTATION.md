@@ -311,7 +311,7 @@ Response:
 - **Documentación Interactiva**: `https://docs.jurisrank.com/`
 - **Status Page**: `https://status.jurisrank.com/`
 - **Community Forum**: `https://community.jurisrank.com/`
-- **GitHub Repository**: `https://github.com/adrianlerer/jurisrank-core`
+- **GitHub Repository**: `https://github.com/adrianlerer/jurisrank-production`
 
 ## 🆘 **Soporte / Support**
 

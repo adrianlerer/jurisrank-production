@@ -101,7 +101,7 @@ y este proyecto adhiere al [Versionado Semántico](https://semver.org/spec/v2.0.
 
 ## 🔗 Enlaces
 
-- **Repositorio**: [https://github.com/adrianlerer/jurisrank-core](https://github.com/adrianlerer/jurisrank-core)
+- **Repositorio**: [https://github.com/adrianlerer/jurisrank-production](https://github.com/adrianlerer/jurisrank-production)
 - **Papers SSRN**: 
   - "The Legislator as Extended Phenotype"
   - "JurisRank: Measuring Legal Phenotypic Fitness"
