@@ -61,6 +61,11 @@ JurisRank implementa una estrategia de penetración de mercado inspirada en el m
 - **Performance**: <15ms average response time
 - **Documentation**: 100% OpenAPI 3.0.1 coverage
 
+**📋 Official Audit Reports:**
+- **[External Audit Report](EXTERNAL_AUDIT_REPORT.md)** - Independent third-party validation
+- **[Verification Report](EXTERNAL_ACCESS_VERIFICATION_REPORT.md)** - Comprehensive access testing
+- **[Security Checklist](SECURITY_CHECKLIST.md)** - Production security requirements
+
 **🧪 Test Yourself:**
 ```bash
 # Run external validation

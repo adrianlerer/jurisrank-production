@@ -1,0 +1,230 @@
+{
+  "timestamp": "2025-08-27T18:43:31.925908",
+  "base_url": "https://5000-i09td971cyg7b4ytmaaxl.e2b.dev",
+  "results": {
+    "external_validation": {
+      "status": "success",
+      "output": "\ud83d\udd0d JurisRank External Agent Test\n\ud83c\udfaf Target: https://5000-i09td971cyg7b4ytmaaxl.e2b.dev\n\ud83d\udcc5 Wed Aug 27 18:43:31 UTC 2025\n==================================\nTesting Health endpoint... \u2705 200\nTesting API Status endpoint... \u2705 Valid JSON\n{\"endpoints\":{\"authority\":\"/api/v1/jurisprudence/authority\",\"compare\":\"/api/v1/compare/systems\",\"ope...\nTesting OpenAPI schema... \u2705 Valid JSON\n{\"components\":{\"schemas\":{\"ApiRegistrationResponse\":{\"properties\":{\"api_key\":{\"description\":\"Generat...\nValidating OpenAPI structure... \u2705 Valid (v1.0.0, 5 endpoints)\nTesting Swagger UI docs... \u2705 200\nTesting security headers... \u2705 5/5 security headers present\nTesting rate limiting headers... \u2139\ufe0f No rate limiting headers (may be implemented server-side)\nTesting error handling... \u2705 Structured error response\n==================================\n\ud83d\udcca Test Results: 7/7 passed\n\ud83d\udcc8 Success Rate: 100%\n\ud83c\udf89 JurisRank API validation PASSED\n\u2705 Ready for external integration\n",
+      "error": "",
+      "return_code": 0,
+      "success_rate": "100%"
+    },
+    "contract_validation": {
+      "status": "success",
+      "output": "\ud83d\ude80 JurisRank API Contract Validation\n\ud83c\udfaf Target: https://5000-i09td971cyg7b4ytmaaxl.e2b.dev\n\n\ud83d\udd0d JurisRank API Contract Validation Suite\n==================================================\n\ud83d\udccd Target URL: https://5000-i09td971cyg7b4ytmaaxl.e2b.dev\n\ud83d\udd50 Started: 2025-08-27T18:43:33.284352\n\n\ud83e\uddea DNS/TLS Connectivity\n------------------------------\n\u2705 DNS/TLS Connectivity (0.022s)\n   Successfully connected to https://5000-i09td971cyg7b4ytmaaxl.e2b.dev\n   Details: {\n  \"status_code\": 200,\n  \"response_time\": \"0.022s\",\n  \"headers\": {\n    \"Content-Length\": \"98\",\n    \"content-security-policy\": \"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'\",\n    \"content-type\": \"application/json\",\n    \"date\": \"Wed, 27 Aug 2025 18:43:33 GMT\",\n    \"referrer-policy\": \"strict-origin-when-cross-origin\",\n    \"server\": \"Werkzeug/3.1.3 Python/3.12.11\",\n    \"x-content-type-options\": \"nosniff\",\n    \"x-frame-options\": \"DENY\",\n    \"x-xss-protection\": \"1; mode=block\",\n    \"via\": \"1.1 google\",\n    \"Alt-Svc\": \"h3=\\\":443\\\"; ma=2592000,h3-29=\\\":443\\\"; ma=2592000\"\n  }\n}\n\n\ud83e\uddea Security Headers\n------------------------------\n\u2705 Security Header: Content-Security-Policy\n   Present: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'\n   Details: {\n  \"header_value\": \"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'\"\n}\n\n\u2705 Security Header: X-Content-Type-Options\n   Present: nosniff\n   Details: {\n  \"header_value\": \"nosniff\"\n}\n\n\u2705 Security Header: X-Frame-Options\n   Present: DENY\n   Details: {\n  \"header_value\": \"DENY\"\n}\n\n\u2705 Security Header: X-XSS-Protection\n   Present: 1; mode=block\n   Details: {\n  \"header_value\": \"1; mode=block\"\n}\n\n\u26a0\ufe0f Security Header: Strict-Transport-Security\n   HSTS header missing\n   Details: {\n  \"recommendation\": \"Add security header for production\"\n}\n\n\u2705 Security Header: Referrer-Policy\n   Present: strict-origin-when-cross-origin\n   Details: {\n  \"header_value\": \"strict-origin-when-cross-origin\"\n}\n\n\ud83e\uddea API Endpoints\n------------------------------\n\u2705 API Status Endpoint Contract\n   All required fields present\n   Details: {\n  \"endpoints\": {\n    \"authority\": \"/api/v1/jurisprudence/authority\",\n    \"compare\": \"/api/v1/compare/systems\",\n    \"openapi\": \"/api/v1/openapi.json\",\n    \"register\": \"/api/v1/auth/register\",\n    \"search\": \"/api/v1/precedents/search\"\n  },\n  \"environment\": \"mock_testing\",\n  \"status\": \"operational\",\n  \"version\": \"1.0.0\"\n}\n\n\ud83e\uddea Error Handling\n------------------------------\n\u2705 404 Error Structure\n   Structured error response\n   Details: {\n  \"error\": {\n    \"code\": 404,\n    \"details\": \"The requested endpoint does not exist\",\n    \"message\": \"Resource not found\",\n    \"path\": \"/nonexistent\",\n    \"timestamp\": \"2025-08-27T18:43:33.350114\"\n  }\n}\n\n\u2705 405 Method Not Allowed\n   Proper method validation\n   Details: {\n  \"allowed_methods\": \"Not specified\"\n}\n\n\ud83e\uddea Performance\n------------------------------\n\u2705 Health Endpoint Performance\n   Average response time: 0.012s\n   Details: {\n  \"average_ms\": \"11.9\",\n  \"max_ms\": \"12.3\",\n  \"samples\": 5\n}\n\n\ud83e\uddea Content Types\n------------------------------\n\u2705 Content-Type: /health\n   Correct content type: application/json\n   Details: {\n  \"content_type\": \"application/json\"\n}\n\n\u2705 Content-Type: /api/v1/status\n   Correct content type: application/json\n   Details: {\n  \"content_type\": \"application/json\"\n}\n\n\ud83e\uddea OpenAPI Schema\n------------------------------\n\u2705 OpenAPI Schema Generation\n   OpenAPI 3.0 schema generated successfully\n   Details: {\n  \"schema_file\": \"openapi_schema.json\",\n  \"endpoints_documented\": 6,\n  \"api_version\": \"1.0.0\"\n}\n\n\ud83d\udcca VALIDATION SUMMARY\n==================================================\n\u2705 Passed: 13\n\u274c Failed: 0\n\u26a0\ufe0f  Warnings: 1\n\ud83d\udcc8 Success Rate: 92.9%\n\n\ud83d\udcc4 Detailed report saved: api_contract_validation_report.json\n\u2705 All validations passed successfully!\n",
+      "error": "",
+      "return_code": 0,
+      "report_data": {
+        "validation_timestamp": "2025-08-27T18:43:33.962991",
+        "target_url": "https://5000-i09td971cyg7b4ytmaaxl.e2b.dev",
+        "total_tests": 14,
+        "passed": 13,
+        "failed": 0,
+        "warnings": 1,
+        "success_rate": "92.9%",
+        "results": [
+          {
+            "test": "DNS/TLS Connectivity",
+            "status": "PASS",
+            "message": "Successfully connected to https://5000-i09td971cyg7b4ytmaaxl.e2b.dev",
+            "details": {
+              "status_code": 200,
+              "response_time": "0.022s",
+              "headers": {
+                "Content-Length": "98",
+                "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'",
+                "content-type": "application/json",
+                "date": "Wed, 27 Aug 2025 18:43:33 GMT",
+                "referrer-policy": "strict-origin-when-cross-origin",
+                "server": "Werkzeug/3.1.3 Python/3.12.11",
+                "x-content-type-options": "nosniff",
+                "x-frame-options": "DENY",
+                "x-xss-protection": "1; mode=block",
+                "via": "1.1 google",
+                "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+              }
+            },
+            "execution_time": 0.02242422103881836
+          },
+          {
+            "test": "Security Header: Content-Security-Policy",
+            "status": "PASS",
+            "message": "Present: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'",
+            "details": {
+              "header_value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "Security Header: X-Content-Type-Options",
+            "status": "PASS",
+            "message": "Present: nosniff",
+            "details": {
+              "header_value": "nosniff"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "Security Header: X-Frame-Options",
+            "status": "PASS",
+            "message": "Present: DENY",
+            "details": {
+              "header_value": "DENY"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "Security Header: X-XSS-Protection",
+            "status": "PASS",
+            "message": "Present: 1; mode=block",
+            "details": {
+              "header_value": "1; mode=block"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "Security Header: Strict-Transport-Security",
+            "status": "WARNING",
+            "message": "HSTS header missing",
+            "details": {
+              "recommendation": "Add security header for production"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "Security Header: Referrer-Policy",
+            "status": "PASS",
+            "message": "Present: strict-origin-when-cross-origin",
+            "details": {
+              "header_value": "strict-origin-when-cross-origin"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "API Status Endpoint Contract",
+            "status": "PASS",
+            "message": "All required fields present",
+            "details": {
+              "endpoints": {
+                "authority": "/api/v1/jurisprudence/authority",
+                "compare": "/api/v1/compare/systems",
+                "openapi": "/api/v1/openapi.json",
+                "register": "/api/v1/auth/register",
+                "search": "/api/v1/precedents/search"
+              },
+              "environment": "mock_testing",
+              "status": "operational",
+              "version": "1.0.0"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "404 Error Structure",
+            "status": "PASS",
+            "message": "Structured error response",
+            "details": {
+              "error": {
+                "code": 404,
+                "details": "The requested endpoint does not exist",
+                "message": "Resource not found",
+                "path": "/nonexistent",
+                "timestamp": "2025-08-27T18:43:33.350114"
+              }
+            },
+            "execution_time": null
+          },
+          {
+            "test": "405 Method Not Allowed",
+            "status": "PASS",
+            "message": "Proper method validation",
+            "details": {
+              "allowed_methods": "Not specified"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "Health Endpoint Performance",
+            "status": "PASS",
+            "message": "Average response time: 0.012s",
+            "details": {
+              "average_ms": "11.9",
+              "max_ms": "12.3",
+              "samples": 5
+            },
+            "execution_time": null
+          },
+          {
+            "test": "Content-Type: /health",
+            "status": "PASS",
+            "message": "Correct content type: application/json",
+            "details": {
+              "content_type": "application/json"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "Content-Type: /api/v1/status",
+            "status": "PASS",
+            "message": "Correct content type: application/json",
+            "details": {
+              "content_type": "application/json"
+            },
+            "execution_time": null
+          },
+          {
+            "test": "OpenAPI Schema Generation",
+            "status": "PASS",
+            "message": "OpenAPI 3.0 schema generated successfully",
+            "details": {
+              "schema_file": "openapi_schema.json",
+              "endpoints_documented": 6,
+              "api_version": "1.0.0"
+            },
+            "execution_time": null
+          }
+        ]
+      }
+    },
+    "unit_tests": {
+      "status": "success",
+      "output": "============================= test session starts ==============================\nplatform linux -- Python 3.12.11, pytest-8.3.5, pluggy-1.6.0 -- /usr/local/bin/python\ncachedir: .pytest_cache\nrootdir: /home/user/webapp\nplugins: anyio-4.9.0\ncollecting ... collected 10 items\n\ntests/test_basic.py::TestJurisRankAPI::test_api_client_initialization PASSED [ 10%]\ntests/test_basic.py::TestJurisRankAPI::test_api_client_custom_url PASSED [ 20%]\ntests/test_basic.py::TestJurisRankAPI::test_analyze_document PASSED      [ 30%]\ntests/test_basic.py::TestJurisRankAPI::test_search_jurisprudence PASSED  [ 40%]\ntests/test_basic.py::TestJurisRankAPI::test_get_authority_score PASSED   [ 50%]\ntests/test_basic.py::TestModels::test_legal_document_model PASSED        [ 60%]\ntests/test_basic.py::TestModels::test_legal_document_invalid_score PASSED [ 70%]\ntests/test_basic.py::TestModels::test_analysis_result_model PASSED       [ 80%]\ntests/test_basic.py::TestUtilities::test_get_version PASSED              [ 90%]\ntests/test_basic.py::TestUtilities::test_get_api_info PASSED             [100%]\n\n=============================== warnings summary ===============================\nsrc/jurisrank/models.py:23\n  /home/user/webapp/tests/../src/jurisrank/models.py:23: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/\n    @validator('authority_score')\n\n../../../usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:323\n  /usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:323: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/\n    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)\n\n../../../usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:373\n  /usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:373: UserWarning: Valid config keys have changed in V2:\n  * 'schema_extra' has been renamed to 'json_schema_extra'\n    warnings.warn(message, UserWarning)\n\nsrc/jurisrank/models.py:63\n  /home/user/webapp/tests/../src/jurisrank/models.py:63: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/\n    @validator('entity_type')\n\nsrc/jurisrank/models.py:78\n  /home/user/webapp/tests/../src/jurisrank/models.py:78: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/\n    @validator('jurisdiction')\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 10 passed, 5 warnings in 0.67s ========================\n",
+      "error": "",
+      "return_code": 0
+    },
+    "documentation": {
+      "status": "complete",
+      "documents": {
+        "README.md": {
+          "exists": true,
+          "lines": 191
+        },
+        "EXTERNAL_AUDIT_REPORT.md": {
+          "exists": true,
+          "lines": 96
+        },
+        "EXTERNAL_ACCESS_VERIFICATION_REPORT.md": {
+          "exists": true,
+          "lines": 217
+        },
+        "SECURITY_CHECKLIST.md": {
+          "exists": true,
+          "lines": 350
+        },
+        "CONTRIBUTING.md": {
+          "exists": true,
+          "lines": 416
+        },
+        "RELEASE_NOTES_v0.9.0-open.md": {
+          "exists": true,
+          "lines": 288
+        },
+        "openapi_schema.json": {
+          "exists": true,
+          "lines": 135
+        }
+      },
+      "total_lines": 1693,
+      "coverage_score": 100.0
+    }
+  }
+}
