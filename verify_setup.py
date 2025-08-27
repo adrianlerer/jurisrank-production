@@ -43,7 +43,7 @@ def main():
     print("🔍 JurisRank Setup Verification")
     print("=" * 40)
     
-    base_url = "https://5000-i09td971cyg7b4ytmaaxl.e2b.dev"
+    base_url = "https://5000-ihpc0zttjgtqrprr5t3vr.e2b.dev"
     
     # Check local files
     print("\n📁 Local Files Check:")
