@@ -43,7 +43,7 @@ export default async (request, context) => {
       'jurisprudence_authority_analysis',
       'precedent_search',
       'comparative_systems_analysis',
-      'patent_p7_methodology',
+      'evolutionary_methodology',
       'multi_jurisdictional_support'
     ],
     status: 'active',

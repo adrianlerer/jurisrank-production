@@ -46,7 +46,7 @@ export default async (request, context) => {
 
   const { concept = 'contract_formation', jurisdictions = ['argentina', 'usa', 'canada'] } = requestData;
 
-  // Patent P7 Comparative Legal Systems Analysis
+  // Evolutionary Comparative Legal Systems Analysis
   const generateComparativeAnalysis = (concept, jurisdictions) => {
     const legalSystemsDb = {
       argentina: {
@@ -82,7 +82,7 @@ export default async (request, context) => {
         evolution_timeline: {
           pre_2015: 'Código Civil Vélez Sarsfield',
           current: 'Código Civil y Comercial Unificado (2015)',
-          patent_p7_score: 0.89
+          evolutionary_score: 0.89
         }
       },
       usa: {
@@ -119,7 +119,7 @@ export default async (request, context) => {
         evolution_timeline: {
           common_law_origins: 'English precedents',
           modern_era: 'UCC and Restatements',
-          patent_p7_score: 0.92
+          evolutionary_score: 0.92
         }
       },
       canada: {
@@ -155,7 +155,7 @@ export default async (request, context) => {
         evolution_timeline: {
           quebec_civil: 'Code Civil du Québec',
           common_provinces: 'English Common Law adaptation',
-          patent_p7_score: 0.86
+          evolutionary_score: 0.86
         }
       }
     };
@@ -172,9 +172,9 @@ export default async (request, context) => {
 
   const comparativeAnalysis = generateComparativeAnalysis(concept, jurisdictions);
 
-  // Patent P7 Cross-jurisdictional Metrics
+  // Evolutionary Cross-jurisdictional Metrics
   const calculateConvergenceScores = (analysis, concept) => {
-    const scores = Object.values(analysis).map(sys => sys.patent_p7_score || 0.8);
+    const scores = Object.values(analysis).map(sys => sys.evolutionary_score || 0.8);
     const avgScore = scores.reduce((a, b) => a + b, 0) / scores.length;
     
     return {
@@ -190,9 +190,9 @@ export default async (request, context) => {
     comparative_analysis: comparativeAnalysis,
     concept: concept,
     jurisdictions_analyzed: jurisdictions,
-    patent_p7_methodology: {
+    evolutionary_methodology: {
       analysis_type: 'evolutionary_comparative_jurisprudence',
-      methodology_version: 'P7-Comparative-2025.1',
+      methodology_version: 'JurisRank-Comparative-2025.1',
       analysis_depth: 'multi_jurisdictional_systems',
       convergence_factors: [
         'globalization_influence',
@@ -217,7 +217,7 @@ export default async (request, context) => {
     analysis_metadata: {
       timestamp: new Date().toISOString(),
       processing_time_ms: Math.floor(Math.random() * 300) + 150,
-      algorithm_version: 'P7-Evolution-2025.1',
+      algorithm_version: 'JurisRank-Evolution-2025.1',
       confidence_level: 0.94,
       quality_score: 0.91
     }

@@ -38,10 +38,10 @@ export default async (request, context) => {
       openapi: '/api/v1/openapi.json',
       docs: '/docs'
     },
-    patent_p7: {
-      methodology: 'evolutionary_jurisprudential_analysis',
-      compliance: true,
-      version: '7.0'
+    methodology: {
+      approach: 'evolutionary_jurisprudential_analysis',
+      features: ['multi_jurisdictional', 'precedent_ranking', 'authority_scoring'],
+      version: '1.0'
     }
   };
 

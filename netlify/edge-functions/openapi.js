@@ -29,7 +29,7 @@ export default async (request, context) => {
     info: {
       title: 'JurisRank API - Evolutionary Jurisprudential Analysis',
       description: `
-Revolutionary API for jurisprudential analysis powered by Patent P7 methodology.
+Revolutionary API for jurisprudential analysis powered by evolutionary methodology.
 
 ## 🏛️ About JurisRank
 
@@ -38,7 +38,7 @@ JurisRank applies evolutionary methodologies to measure legal authority and infl
 ## 🚀 Features
 
 - **Multi-jurisdictional Analysis**: Argentina, USA, Canada, and expanding
-- **Evolutionary Scoring**: Patent P7 methodology for authority measurement  
+- **Evolutionary Scoring**: Advanced methodology for authority measurement  
 - **Free Forever**: Complete API access without restrictions
 - **Developer Friendly**: Full REST API with comprehensive documentation
 
@@ -48,9 +48,9 @@ JurisRank applies evolutionary methodologies to measure legal authority and infl
 2. Include API key in requests: \`X-API-Key: your_key_here\`  
 3. Start analyzing jurisprudence with evolutionary precision
 
-## 📚 Patent P7 Methodology
+## 📚 Evolutionary Methodology
 
-Our proprietary methodology analyzes:
+Our advanced methodology analyzes:
 - Jurisdictional hierarchy and authority patterns
 - Cross-citation networks and influence propagation
 - Temporal evolution of legal precedents
@@ -65,10 +65,10 @@ Our proprietary methodology analyzes:
         name: 'MIT License',
         url: 'https://opensource.org/licenses/MIT'
       },
-      'x-patent': {
-        methodology: 'Patent P7 - Evolutionary Jurisprudential Analysis',
-        inventor: 'Ignacio Adrian Lerer',
-        status: 'Patent Applied - INPI Argentina'
+      'x-methodology': {
+        approach: 'Evolutionary Jurisprudential Analysis',
+        developer: 'Ignacio Adrian Lerer',
+        features: ['multi_jurisdictional', 'authority_scoring', 'precedent_ranking']
       }
     },
     servers: [
@@ -148,7 +148,7 @@ Our proprietary methodology analyzes:
         post: {
           tags: ['JurisRank Analysis'],
           summary: 'Jurisprudential Authority Analysis',
-          description: 'Patent P7 evolutionary analysis of legal case authority and precedential strength',
+          description: 'Evolutionary analysis of legal case authority and precedential strength',
           security: [{ ApiKeyAuth: [] }],
           requestBody: {
             required: true,
@@ -182,7 +182,7 @@ Our proprietary methodology analyzes:
         get: {
           tags: ['JurisRank Analysis'],
           summary: 'Precedent Search',
-          description: 'Search jurisprudential precedents with Patent P7 relevance ranking',
+          description: 'Search jurisprudential precedents with evolutionary relevance ranking',
           security: [{ ApiKeyAuth: [] }],
           parameters: [
             {
@@ -213,7 +213,7 @@ Our proprietary methodology analyzes:
           ],
           responses: {
             200: {
-              description: 'Search results with Patent P7 ranking',
+              description: 'Search results with evolutionary ranking',
               content: {
                 'application/json': {
                   schema: { $ref: '#/components/schemas/SearchResponse' }

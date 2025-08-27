@@ -150,7 +150,7 @@ export default async (request, context) => {
       has_more: offset + results.length < totalResults,
       query_time_ms: Math.floor(Math.random() * 150) + 45
     },
-    patent_p7_analysis: {
+    evolutionary_analysis: {
       methodology: 'evolutionary_precedent_ranking',
       ranking_factors: [
         'jurisdictional_authority',
@@ -160,7 +160,7 @@ export default async (request, context) => {
         'precedential_strength'
       ],
       confidence_score: 0.92,
-      algorithm_version: 'P7-Search-2025.1'
+      algorithm_version: 'JurisRank-Search-2025.1'
     },
     pagination: {
       current_page: Math.floor(offset / limit) + 1,

@@ -18,7 +18,7 @@ export default async (request, context) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🏛️ JurisRank API Documentation</title>
-    <meta name="description" content="Interactive documentation for JurisRank jurisprudential analysis API powered by Patent P7 methodology">
+    <meta name="description" content="Interactive documentation for JurisRank jurisprudential analysis API powered by evolutionary methodology">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@4.15.5/swagger-ui.css" />
     <link rel="icon" type="image/png" href="https://unpkg.com/swagger-ui-dist@4.15.5/favicon-32x32.png" sizes="32x32" />
     <style>
@@ -55,7 +55,7 @@ export default async (request, context) => {
         }
         
         .swagger-ui .topbar-wrapper .link:after {
-            content: ' - Patent P7 Methodology';
+            content: ' - Evolutionary Methodology';
             font-size: 0.7em;
             font-weight: normal;
             opacity: 0.9;
@@ -74,7 +74,7 @@ export default async (request, context) => {
             margin: 20px 0;
         }
         
-        /* Patent P7 Badge */
+        /* Methodology Badge */
         .patent-badge {
             display: inline-block;
             background: linear-gradient(45deg, #f59e0b, #d97706);
@@ -145,7 +145,7 @@ export default async (request, context) => {
 </head>
 <body>
     <div class="info-banner">
-        <h3>🏛️ JurisRank API <span class="patent-badge">Patent P7</span></h3>
+        <h3>🏛️ JurisRank API <span class="patent-badge">Evolution</span></h3>
         <p><strong>Revolutionary Jurisprudential Analysis Platform</strong></p>
         <p>Explore cutting-edge legal analysis powered by evolutionary methodologies and multi-jurisdictional intelligence. This interactive documentation provides complete API access for developers.</p>
         
@@ -158,7 +158,7 @@ export default async (request, context) => {
             <div class="feature-card">
                 <span class="emoji">🧬</span>
                 <strong>Evolutionary</strong><br>
-                <small>Patent P7 Methodology</small>
+                <small>Advanced Methodology</small>
             </div>
             <div class="feature-card">
                 <span class="emoji">⚡</span>
@@ -258,7 +258,7 @@ export default async (request, context) => {
     
     // Console branding and help
     console.log('%c🏛️ JurisRank API Documentation', 'color: #1e3a8a; font-size: 18px; font-weight: bold;');
-    console.log('%cPatent P7 Methodology - Revolutionary Jurisprudential Analysis', 'color: #374151; font-style: italic;');
+    console.log('%cEvolutionary Methodology - Revolutionary Jurisprudential Analysis', 'color: #374151; font-style: italic;');
     console.log('%c\\n💡 Tip: Save your API key for automatic inclusion:', 'color: #374151;');
     console.log('%csaveApiKey("your-api-key-here")', 'color: #059669; font-family: monospace; font-weight: bold;');
     </script>

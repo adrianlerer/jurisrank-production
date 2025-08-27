@@ -60,7 +60,7 @@ export default async (request, context) => {
     );
   }
 
-  // Patent P7 Evolutionary Authority Analysis
+  // Evolutionary Authority Analysis
   const calculateAuthorityScore = (citation, jurisdiction, area) => {
     let baseScore = 75.0;
     
@@ -95,7 +95,7 @@ export default async (request, context) => {
 
     const modifier = areaModifiers[legal_area] || 1.00;
     
-    // Patent P7 evolutionary factors
+    // Evolutionary scoring factors
     const evolutionaryScore = baseScore * modifier;
     const finalScore = Math.min(evolutionaryScore + (Math.random() * 5 - 2.5), 100);
 
@@ -110,7 +110,7 @@ export default async (request, context) => {
     case_citation: case_citation,
     jurisdiction: jurisdiction,
     legal_area: legal_area,
-    patent_p7_methodology: {
+    evolutionary_methodology: {
       evolutionary_factors: {
         jurisdictional_hierarchy: authorityScore > 85 ? 'supreme_level' : authorityScore > 75 ? 'appellate_level' : 'trial_level',
         temporal_influence: 'contemporary_relevance',
@@ -136,7 +136,7 @@ export default async (request, context) => {
     analysis_metadata: {
       timestamp: new Date().toISOString(),
       processing_time_ms: Math.floor(Math.random() * 200) + 50,
-      algorithm_version: 'P7-Evolution-2025.1',
+      algorithm_version: 'JurisRank-Evolution-2025.1',
       quality_score: 0.94
     }
   };
