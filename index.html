@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏛️ JurisRank API - Plataforma de Análisis Jurisprudencial</title>
+    <meta name="description" content="API revolucionaria para análisis jurisprudencial evolutivo con metodología Patent P7">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+            min-height: 100vh;
+        }
+        .glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        .patent-badge {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-6xl font-bold mb-4">
+                🏛️ JurisRank API
+            </h1>
+            <div class="patent-badge inline-block px-6 py-2 rounded-full text-white font-bold text-lg mb-4">
+                ⚖️ Patent P7 Methodology
+            </div>
+            <p class="text-2xl mb-6 opacity-90">
+                Plataforma Revolucionaria de Análisis Jurisprudencial Evolutivo
+            </p>
+            <p class="text-lg opacity-80 max-w-3xl mx-auto">
+                API completamente <strong>GRATUITA PARA SIEMPRE</strong> que democratiza el acceso 
+                al análisis legal avanzado con metodologías evolutivas validadas académicamente.
+            </p>
+        </div>
+
+        <!-- Status Cards -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white bg-opacity-10 rounded-lg p-6 glow">
+                <div class="text-green-400 text-4xl mb-4">✅</div>
+                <h3 class="text-xl font-bold mb-2">API Operacional</h3>
+                <p class="opacity-80">Todas las funciones serverless desplegadas y funcionando</p>
+                <a href="/api/v1/status" class="text-blue-300 hover:text-blue-200 underline">Ver Estado</a>
+            </div>
+            
+            <div class="bg-white bg-opacity-10 rounded-lg p-6 glow">
+                <div class="text-blue-400 text-4xl mb-4">📚</div>
+                <h3 class="text-xl font-bold mb-2">Documentación</h3>
+                <p class="opacity-80">Interfaz interactiva Swagger UI con ejemplos completos</p>
+                <a href="/docs" class="text-blue-300 hover:text-blue-200 underline">Explorar API</a>
+            </div>
+            
+            <div class="bg-white bg-opacity-10 rounded-lg p-6 glow">
+                <div class="text-yellow-400 text-4xl mb-4">🔑</div>
+                <h3 class="text-xl font-bold mb-2">API Key Gratuita</h3>
+                <p class="opacity-80">Registrate gratis y obtené acceso inmediato</p>
+                <a href="/api/v1/auth/register" class="text-blue-300 hover:text-blue-200 underline">Obtener Clave</a>
+            </div>
+        </div>
+
+        <!-- Quick Test -->
+        <div class="bg-white bg-opacity-10 rounded-lg p-8 mb-12 glow">
+            <h2 class="text-3xl font-bold mb-6 text-center">🧪 Prueba Rápida</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">📊 Health Check</h3>
+                    <div class="bg-black bg-opacity-30 rounded p-4 font-mono text-sm">
+                        <div class="text-green-400">$ curl https://jurisrank-production.netlify.app/health</div>
+                        <div class="text-gray-300 mt-2">
+{<br>
+&nbsp;&nbsp;"status": "healthy",<br>
+&nbsp;&nbsp;"timestamp": "2025-08-27T...",<br>
+&nbsp;&nbsp;"version": "1.0.0-netlify"<br>
+}
+                        </div>
+                    </div>
+                    <a href="/health" class="inline-block mt-4 bg-green-600 hover:bg-green-700 px-4 py-2 rounded transition-colors">
+                        Probar Health Check
+                    </a>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">⚖️ Análisis Jurisprudencial</h3>
+                    <div class="bg-black bg-opacity-30 rounded p-4 font-mono text-sm">
+                        <div class="text-blue-400">POST /api/v1/jurisprudence/authority</div>
+                        <div class="text-gray-300 mt-2">
+{<br>
+&nbsp;&nbsp;"case_citation": "CSJN Fallos 340:1304",<br>
+&nbsp;&nbsp;"jurisdiction": "argentina",<br>
+&nbsp;&nbsp;"legal_area": "constitutional_law"<br>
+}
+                        </div>
+                    </div>
+                    <a href="/docs" class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition-colors">
+                        Ver Documentación
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mb-12">
+            <h2 class="text-4xl font-bold text-center mb-8">🚀 Características</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🌍</div>
+                    <h3 class="font-bold mb-2">Multi-jurisdiccional</h3>
+                    <p class="text-sm opacity-80">Argentina, USA, Canadá, y más</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🧬</div>
+                    <h3 class="font-bold mb-2">Evolutivo</h3>
+                    <p class="text-sm opacity-80">Metodología Patent P7</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="font-bold mb-2">Serverless</h3>
+                    <p class="text-sm opacity-80">99.9% uptime garantizado</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🔓</div>
+                    <h3 class="font-bold mb-2">Open Source</h3>
+                    <p class="text-sm opacity-80">Licencia MIT</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center border-t border-white border-opacity-20 pt-8">
+            <p class="opacity-80 mb-4">
+                © 2025 Ignacio Adrian Lerer • JurisRank Platform
+            </p>
+            <p class="text-sm opacity-60">
+                🏛️ Revolutionizing jurisprudential analysis with evolutionary technology
+            </p>
+            
+            <div class="mt-6 flex justify-center space-x-6">
+                <a href="/docs" class="hover:text-blue-300">📚 Documentación</a>
+                <a href="/api/v1/status" class="hover:text-blue-300">📊 Estado API</a>
+                <a href="https://github.com/adrianlerer/jurisrank-production" class="hover:text-blue-300">💻 GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Test health endpoint and show real status
+            fetch('/health')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('🏛️ JurisRank API Status:', data);
+                })
+                .catch(error => {
+                    console.log('API not ready yet:', error);
+                });
+        });
+    </script>
+</body>
+</html>
