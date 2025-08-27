@@ -1,35 +1,5 @@
-export default async (request, context) => {
-  // CORS headers
-  const headers = {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, X-API-Key',
-    'X-Frame-Options': 'DENY',
-    'X-Content-Type-Options': 'nosniff',
-    'Cache-Control': 'no-cache'
-  };
-
-  // Handle OPTIONS preflight
-  if (request.method === 'OPTIONS') {
-    return new Response(null, { status: 200, headers });
-  }
-
-  // Only allow GET
-  if (request.method !== 'GET') {
-    return new Response(
-      JSON.stringify({
-        error: {
-          code: 405,
-          message: 'Method not allowed',
-          allowed_methods: ['GET', 'OPTIONS']
-        }
-      }),
-      { status: 405, headers }
-    );
-  }
-
-  // Health response
+export default async () => {
+  // Simple health response
   const healthData = {
     status: 'healthy',
     timestamp: new Date().toISOString(),
@@ -41,6 +11,12 @@ export default async (request, context) => {
 
   return new Response(JSON.stringify(healthData), {
     status: 200,
-    headers
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Cache-Control': 'no-cache'
+    }
   });
 };
