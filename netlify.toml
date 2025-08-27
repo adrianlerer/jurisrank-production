@@ -1,7 +1,7 @@
 [build]
   publish = "."
 
-# Edge Functions (JavaScript) - more reliable than Python functions
+# Edge Functions - Complete JurisRank API
 [[edge_functions]]
   function = "health"
   path = "/health"
@@ -13,6 +13,26 @@
 [[edge_functions]]
   function = "register"
   path = "/api/v1/auth/register"
+
+[[edge_functions]]
+  function = "authority"
+  path = "/api/v1/jurisprudence/authority"
+
+[[edge_functions]]
+  function = "search"
+  path = "/api/v1/precedents/search"
+
+[[edge_functions]]
+  function = "compare"
+  path = "/api/v1/compare/systems"
+
+[[edge_functions]]
+  function = "openapi"
+  path = "/api/v1/openapi.json"
+
+[[edge_functions]]
+  function = "docs"
+  path = "/docs"
 
 # Security headers for all routes
 [[headers]]
