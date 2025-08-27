@@ -1,4 +1,11 @@
 [build]
   publish = "."
 
-# Just serve static files for now - no functions
+[functions]
+  directory = "api"
+
+# Start with just one redirect to test
+[[redirects]]
+  from = "/health"
+  to = "/.netlify/functions/health"
+  status = 200
