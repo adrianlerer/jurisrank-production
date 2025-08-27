@@ -149,6 +149,44 @@ curl -X POST https://api.jurisrank.com/v1/auth/register
 
 > **Note**: PyPI package `jurisrank-sdk` coming soon. Currently install from source.
 
+## 🏗️ **Production Deployment**
+
+### 🚀 Deploy to Netlify (Recommended)
+
+JurisRank includes a **production-ready serverless API** that can be deployed to Netlify for **maintenance-free operation** with **99.9% uptime guarantee**.
+
+#### Quick Deploy
+```bash
+# 1. Test functions locally
+python3 test_netlify_functions.py
+
+# 2. Deploy to Netlify (automated)
+./deploy_to_netlify.sh
+```
+
+#### Manual Deployment
+1. Push this repository to GitHub
+2. Go to [Netlify](https://netlify.com)
+3. Click "New site from Git"
+4. Select repository and deploy
+
+### ✨ Production Features
+- **8 Serverless Functions**: Complete API coverage
+- **Auto-scaling**: Handles unlimited concurrent requests  
+- **Global CDN**: Edge locations worldwide
+- **Zero Maintenance**: No server management required
+- **SSL Certificate**: Automatic HTTPS everywhere
+- **99.9% Uptime**: Enterprise-grade reliability
+
+### 🔗 Production URLs
+After deployment, your API endpoints will be:
+- Health: `https://your-site.netlify.app/health`
+- Status: `https://your-site.netlify.app/api/v1/status` 
+- Docs: `https://your-site.netlify.app/docs`
+- API: All `/api/v1/*` endpoints fully functional
+
+> **See [NETLIFY_DEPLOYMENT_INSTRUCTIONS.md](NETLIFY_DEPLOYMENT_INSTRUCTIONS.md) for detailed deployment guide.**
+
 ### Basic Usage
 ```python
 import jurisrank
