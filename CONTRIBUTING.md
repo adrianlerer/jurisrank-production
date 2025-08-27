@@ -1,171 +1,228 @@
-# Contribuyendo a JurisRank
+# Contribuir a JurisRank 🤝
 
-¡Bienvenido! Gracias por tu interés en contribuir a JurisRank, la plataforma de inteligencia artificial jurídica que está revolucionando el análisis legal mundial.
-
-## 🌍 Comunidad Global
-
-JurisRank es un proyecto open source que busca democratizar el acceso a la inteligencia artificial jurídica. Damos la bienvenida a contribuciones de:
-
-- 👩‍💻 Desarrolladores de software
-- ⚖️ Profesionales del derecho
-- 🔬 Investigadores académicos  
-- 🌐 Especialistas en localización
-- 📚 Expertos en documentación
-
-## 🚀 Formas de Contribuir
-
-### 1. Desarrollo de Código
-- Mejoras en la API pública
-- Optimizaciones de rendimiento
-- Nuevas funcionalidades
-- Corrección de bugs
-
-### 2. Documentación
-- Mejoras en la documentación técnica
-- Tutoriales y guías de uso
-- Traducciones a otros idiomas
-- Ejemplos de casos de uso
-
-### 3. Testing y QA
-- Casos de prueba adicionales
-- Testing de integración
-- Validación en diferentes entornos
-- Reporte de problemas
-
-### 4. Localización Legal
-- Adaptación a diferentes jurisdicciones
-- Terminología jurídica local
-- Validación de análisis legal
-- Casos de estudio regionales
-
-## 🛠️ Configuración del Entorno de Desarrollo
-
-### Prerrequisitos
-```bash
-# Python 3.8 o superior
-python --version
-
-# Git para control de versiones
-git --version
-```
-
-### Setup Inicial
-```bash
-# 1. Fork el repositorio en GitHub
-# 2. Clonar tu fork
-git clone https://github.com/tu-usuario/jurisrank-core.git
-cd jurisrank-core
-
-# 3. Crear entorno virtual
-python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
-
-# 4. Instalar dependencias
-pip install -r requirements.txt
-pip install -e .
-
-# 5. Instalar herramientas de desarrollo  
-pip install -e .[dev]
-```
-
-### Verificar Instalación
-```bash
-# Ejecutar tests
-python -m pytest tests/
-
-# Ejecutar ejemplo básico
-python examples/basic_usage.py
-
-# Verificar linting
-black --check src/
-flake8 src/
-mypy src/
-```
-
-## 📋 Proceso de Contribución
-
-### 1. Crear Issue
-Antes de comenzar a trabajar, crea un issue para:
-- Reportar bugs
-- Proponer nuevas funcionalidades  
-- Discutir mejoras
-- Solicitar aclaraciones
-
-### 2. Branching Strategy
-```bash
-# Crear rama para tu contribución
-git checkout -b feature/descripcion-de-tu-feature
-git checkout -b bugfix/descripcion-del-bug
-git checkout -b docs/mejora-documentacion
-```
-
-### 3. Desarrollo
-- Sigue las convenciones de código existentes
-- Escribe tests para nuevas funcionalidades
-- Actualiza la documentación según sea necesario
-- Asegúrate de que todos los tests pasen
-
-### 4. Pull Request
-```bash
-# Commit con mensaje descriptivo
-git add .
-git commit -m "feat: añadir funcionalidad X para mejorar Y"
-
-# Push a tu fork
-git push origin feature/descripcion-de-tu-feature
-
-# Crear Pull Request en GitHub
-```
-
-## 📏 Estándares de Código
-
-### Estilo Python
-- Seguir PEP 8
-- Usar Black para formateo automático
-- Máximo 88 caracteres por línea
-- Type hints obligatorios
-
-### Documentación
-- Docstrings en formato Google/Numpy
-- Comentarios claros y concisos
-- Ejemplos de uso cuando sea apropiado
-
-### Tests
-- Cobertura mínima del 80%
-- Tests unitarios y de integración
-- Usar pytest y fixtures apropiadas
-
-## 🔒 Consideraciones de Propiedad Intelectual
-
-### Código Open Source
-- Todo el código contribuido se licencia bajo MIT
-- Los contribuidores conservan sus derechos de autor
-- Las innovaciones algorítmicas principales están protegidas por patente
-
-### Atribución
-- Los contribuidores significativos serán reconocidos
-- Mantener headers de copyright apropiados
-- Respetar licencias de dependencias externas
-
-## 🌟 Reconocimientos
-
-Agradecemos especialmente a todos los contribuidores que han ayudado a hacer de JurisRank una realidad:
-
-- Ignacio Adrián Lerer - Creador y arquitecto principal
-- [Tu nombre podría estar aquí] - ¡Contribuye y únete a la lista!
-
-## 📞 Contacto
-
-¿Preguntas sobre contribuciones?
-
-- 📧 Email: contributors@jurisrank.io
-- 💬 Discussions: [GitHub Discussions](https://github.com/adrianlerer/jurisrank-core/discussions)  
-- 🐛 Issues: [GitHub Issues](https://github.com/adrianlerer/jurisrank-core/issues)
-
-## 📜 Código de Conducta
-
-Este proyecto adhiere al [Código de Conducta del Contribuyente](CODE_OF_CONDUCT.md). Al participar, te comprometes a mantener un entorno acogedor y respetuoso para todos.
+¡Gracias por tu interés en contribuir al proyecto JurisRank! Tu participación es fundamental para construir la plataforma de análisis jurisprudencial más avanzada del mundo.
 
 ---
 
-¡Gracias por contribuir a democratizar el acceso a la inteligencia artificial jurídica! 🚀⚖️
+## 🇪🇸 ESPAÑOL
+
+### 🌟 **Bienvenida a Contribuyentes**
+
+JurisRank es un proyecto de código abierto que busca revolucionar el análisis legal a través de metodologías evolutivas. Valoramos enormemente las contribuciones de desarrolladores, investigadores, profesionales legales y académicos de todo el mundo.
+
+### ⚖️ **Consideraciones de Propiedad Intelectual**
+
+**IMPORTANTE**: JurisRank cuenta con protección de propiedad intelectual:
+- 🏛️ **Patente SOLICITADA** ante INPI Argentina
+- 🏷️ **Marca JurisRank SOLICITADA** ante INPI Argentina
+- 📄 **Copyright DEPOSITADO** en DNDA
+
+Al contribuir, aceptas que tu contribución:
+- Se licencia bajo MIT License para el componente público
+- Respeta los derechos de propiedad intelectual existentes
+- No infringe patentes o marcas de terceros
+
+### 🚀 **Tipos de Contribuciones**
+
+#### **📝 Documentación**
+- Mejoras en documentación API
+- Traducciones a nuevos idiomas
+- Ejemplos de uso y tutoriales
+- Corrección de errores tipográficos
+
+#### **🔧 Desarrollo de Software**
+- Implementación de nuevas funcionalidades públicas
+- Optimización de rendimiento
+- Corrección de bugs
+- SDKs para diferentes lenguajes
+
+#### **🔬 Investigación y Testing**
+- Casos de prueba para metodologías
+- Validación de algoritmos públicos
+- Análisis de casos jurisprudenciales
+- Benchmarking y métricas
+
+#### **🌐 Community Building**
+- Organización de eventos
+- Creación de contenido educativo
+- Soporte a nuevos usuarios
+- Advocacy en conferencias
+
+### 📋 **Proceso de Contribución**
+
+#### **1. Setup Inicial**
+```bash
+# Fork el repositorio
+git clone https://github.com/tu-usuario/jurisrank-core.git
+cd jurisrank-core
+
+# Crear rama para tu feature
+git checkout -b feature/nueva-funcionalidad
+```
+
+#### **2. Desarrollo**
+- Sigue las convenciones de código establecidas
+- Documenta tu código apropiadamente
+- Incluye tests cuando sea aplicable
+- Verifica que tu código pase las pruebas existentes
+
+#### **3. Pull Request**
+- Crea un PR descriptivo con:
+  - Título claro y conciso
+  - Descripción detallada de cambios
+  - Screenshots si aplica
+  - Referencias a issues relacionados
+
+#### **4. Code Review**
+- Responde constructivamente a feedback
+- Realiza cambios solicitados
+- Mantén la discusión enfocada y profesional
+
+### 🎯 **Estándares de Calidad**
+
+#### **Código**
+- Documentación completa en docstrings
+- Cumplimiento con estándares de estilo (PEP 8 para Python)
+- Tests unitarios con >80% cobertura
+- Compatibilidad con versiones soportadas
+
+#### **Documentación**
+- Lenguaje claro y profesional
+- Ejemplos prácticos y funcionables
+- Formato Markdown consistente
+- Bilingüe (Español/Inglés) cuando sea relevante
+
+### 🛡️ **Código de Conducta**
+
+Este proyecto adhiere al [Código de Conducta](CODE_OF_CONDUCT.md). Al participar, te comprometes a mantener un ambiente respetuoso y profesional.
+
+### 📞 **Comunicación**
+
+- **Issues**: Para reportar bugs o solicitar features
+- **Discussions**: Para preguntas generales y discusiones
+- **Email**: Para temas sensibles (ver SECURITY.md)
+
+---
+
+## 🇺🇸 ENGLISH
+
+### 🌟 **Welcome Contributors**
+
+JurisRank is an open source project that aims to revolutionize legal analysis through evolutionary methodologies. We greatly value contributions from developers, researchers, legal professionals, and academics worldwide.
+
+### ⚖️ **Intellectual Property Considerations**
+
+**IMPORTANT**: JurisRank has intellectual property protection:
+- 🏛️ **PATENT FILED** with INPI Argentina
+- 🏷️ **JurisRank TRADEMARK FILED** with INPI Argentina
+- 📄 **COPYRIGHT DEPOSITED** at DNDA
+
+By contributing, you agree that your contribution:
+- Is licensed under MIT License for the public component
+- Respects existing intellectual property rights
+- Does not infringe third-party patents or trademarks
+
+### 🚀 **Types of Contributions**
+
+#### **📝 Documentation**
+- API documentation improvements
+- Translations to new languages
+- Usage examples and tutorials
+- Typo and error corrections
+
+#### **🔧 Software Development**
+- Implementation of new public features
+- Performance optimization
+- Bug fixes
+- SDKs for different languages
+
+#### **🔬 Research and Testing**
+- Test cases for methodologies
+- Validation of public algorithms
+- Jurisprudential case analysis
+- Benchmarking and metrics
+
+#### **🌐 Community Building**
+- Event organization
+- Educational content creation
+- New user support
+- Conference advocacy
+
+### 📋 **Contribution Process**
+
+#### **1. Initial Setup**
+```bash
+# Fork the repository
+git clone https://github.com/your-username/jurisrank-core.git
+cd jurisrank-core
+
+# Create branch for your feature
+git checkout -b feature/new-functionality
+```
+
+#### **2. Development**
+- Follow established code conventions
+- Document your code appropriately
+- Include tests when applicable
+- Verify your code passes existing tests
+
+#### **3. Pull Request**
+- Create a descriptive PR with:
+  - Clear and concise title
+  - Detailed description of changes
+  - Screenshots if applicable
+  - References to related issues
+
+#### **4. Code Review**
+- Respond constructively to feedback
+- Make requested changes
+- Keep discussion focused and professional
+
+### 🎯 **Quality Standards**
+
+#### **Code**
+- Complete documentation in docstrings
+- Compliance with style standards (PEP 8 for Python)
+- Unit tests with >80% coverage
+- Compatibility with supported versions
+
+#### **Documentation**
+- Clear and professional language
+- Practical and functional examples
+- Consistent Markdown format
+- Bilingual (Spanish/English) when relevant
+
+### 🛡️ **Code of Conduct**
+
+This project adheres to the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you commit to maintaining a respectful and professional environment.
+
+### 📞 **Communication**
+
+- **Issues**: To report bugs or request features
+- **Discussions**: For general questions and discussions
+- **Email**: For sensitive matters (see SECURITY.md)
+
+---
+
+## 🔗 **Enlaces Útiles / Useful Links**
+
+- **Repository**: [https://github.com/adrianlerer/jurisrank-core](https://github.com/adrianlerer/jurisrank-core)
+- **API Documentation**: `API_DOCUMENTATION.md`
+- **Security Policy**: `SECURITY.md`
+- **Code of Conduct**: `CODE_OF_CONDUCT.md`
+
+---
+
+## 📞 **Contacto / Contact**
+
+**Ignacio Adrian Lerer**  
+Senior Corporate Lawyer | JurisRank Inventor  
+📧 Contact: See SECURITY.md for reporting guidelines  
+⚖️ Intellectual Property: Fully protected under Argentine law  
+
+---
+
+*¡Únete a la revolución del análisis jurisprudencial!*  
+*Join the jurisprudential analysis revolution!*
+
+*Copyright (c) 2025 Ignacio Adrian Lerer. All rights reserved.*

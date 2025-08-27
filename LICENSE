@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Ignacio Adrián Lerer
+Copyright (c) 2025 Ignacio Adrian Lerer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,21 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-ADDITIONAL INTELLECTUAL PROPERTY NOTICE:
-
-This software implements algorithmic innovations and methodologies that are 
-subject to patent applications and other intellectual property protections:
-
-- Patent Applications: Filed with INPI Argentina and other jurisdictions
-- Trademark Applications: "JurisRank" registered/pending in multiple jurisdictions  
-- Copyright: Software registered with DNDA Argentina
-- Academic Publications: Priority established through SSRN publications
-
-While this source code is licensed under MIT, the underlying algorithmic
-innovations, training methodologies, and data processing techniques may be
-subject to separate intellectual property rights. Users should be aware that
-implementation of similar systems may require additional licensing agreements.
-
-For commercial applications beyond the scope of this MIT license, or for
-questions regarding patent licensing, please contact: legal@jurisrank.io
