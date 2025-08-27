@@ -1,8 +1,7 @@
 [build]
-  command = "ls -la && echo 'JurisRank API ready - no build required'"
+  command = "echo 'Building JurisRank API serverless functions'"
   functions = "api" 
   publish = "."
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."
 
 [build.environment]
   PYTHON_VERSION = "3.9"
@@ -54,7 +53,6 @@
 
 [functions]
   directory = "api"
-  node_bundler = "esbuild"
 
 # API endpoints security headers
 [[headers]]
