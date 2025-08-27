@@ -1,0 +1,169 @@
+{
+  "validation_timestamp": "2025-08-27T17:45:53.546137",
+  "target_url": "https://5000-i09td971cyg7b4ytmaaxl.e2b.dev",
+  "total_tests": 14,
+  "passed": 13,
+  "failed": 0,
+  "warnings": 1,
+  "success_rate": "92.9%",
+  "results": [
+    {
+      "test": "DNS/TLS Connectivity",
+      "status": "PASS",
+      "message": "Successfully connected to https://5000-i09td971cyg7b4ytmaaxl.e2b.dev",
+      "details": {
+        "status_code": 200,
+        "response_time": "0.073s",
+        "headers": {
+          "Content-Length": "98",
+          "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'",
+          "content-type": "application/json",
+          "date": "Wed, 27 Aug 2025 17:45:52 GMT",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "server": "Werkzeug/3.1.3 Python/3.12.11",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "DENY",
+          "x-xss-protection": "1; mode=block",
+          "via": "1.1 google",
+          "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        }
+      },
+      "execution_time": 0.07334256172180176
+    },
+    {
+      "test": "Security Header: Content-Security-Policy",
+      "status": "PASS",
+      "message": "Present: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'",
+      "details": {
+        "header_value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "Security Header: X-Content-Type-Options",
+      "status": "PASS",
+      "message": "Present: nosniff",
+      "details": {
+        "header_value": "nosniff"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "Security Header: X-Frame-Options",
+      "status": "PASS",
+      "message": "Present: DENY",
+      "details": {
+        "header_value": "DENY"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "Security Header: X-XSS-Protection",
+      "status": "PASS",
+      "message": "Present: 1; mode=block",
+      "details": {
+        "header_value": "1; mode=block"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "Security Header: Strict-Transport-Security",
+      "status": "WARNING",
+      "message": "HSTS header missing",
+      "details": {
+        "recommendation": "Add security header for production"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "Security Header: Referrer-Policy",
+      "status": "PASS",
+      "message": "Present: strict-origin-when-cross-origin",
+      "details": {
+        "header_value": "strict-origin-when-cross-origin"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "API Status Endpoint Contract",
+      "status": "PASS",
+      "message": "All required fields present",
+      "details": {
+        "endpoints": {
+          "authority": "/api/v1/jurisprudence/authority",
+          "compare": "/api/v1/compare/systems",
+          "register": "/api/v1/auth/register",
+          "search": "/api/v1/precedents/search"
+        },
+        "environment": "mock_testing",
+        "status": "operational",
+        "version": "1.0.0"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "404 Error Structure",
+      "status": "PASS",
+      "message": "Structured error response",
+      "details": {
+        "error": {
+          "code": 404,
+          "details": "The requested endpoint does not exist",
+          "message": "Resource not found",
+          "path": "/nonexistent",
+          "timestamp": "2025-08-27T17:45:52.887806"
+        }
+      },
+      "execution_time": null
+    },
+    {
+      "test": "405 Method Not Allowed",
+      "status": "PASS",
+      "message": "Proper method validation",
+      "details": {
+        "allowed_methods": "Not specified"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "Health Endpoint Performance",
+      "status": "PASS",
+      "message": "Average response time: 0.015s",
+      "details": {
+        "average_ms": "15.5",
+        "max_ms": "17.6",
+        "samples": 5
+      },
+      "execution_time": null
+    },
+    {
+      "test": "Content-Type: /health",
+      "status": "PASS",
+      "message": "Correct content type: application/json",
+      "details": {
+        "content_type": "application/json"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "Content-Type: /api/v1/status",
+      "status": "PASS",
+      "message": "Correct content type: application/json",
+      "details": {
+        "content_type": "application/json"
+      },
+      "execution_time": null
+    },
+    {
+      "test": "OpenAPI Schema Generation",
+      "status": "PASS",
+      "message": "OpenAPI 3.0 schema generated successfully",
+      "details": {
+        "schema_file": "openapi_schema.json",
+        "endpoints_documented": 5,
+        "api_version": "1.0.0"
+      },
+      "execution_time": null
+    }
+  ]
+}

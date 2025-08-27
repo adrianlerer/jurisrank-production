@@ -24,7 +24,7 @@ xgboost>=1.7.0
 # Document Processing
 PyPDF2>=3.0.0
 python-docx>=0.8.11
-textract>=1.6.5
+textract>=1.6.3
 
 # Data Validation and Parsing
 pydantic>=2.0.0

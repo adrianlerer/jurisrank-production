@@ -62,13 +62,14 @@ class JurisRankAPI:
             analysis_summary="Document analysis completed successfully"
         )
 
-    def search_jurisprudence(self, query: str, jurisdiction: str = "global") -> List[LegalDocument]:
+    def search_jurisprudence(self, query: str, jurisdiction: str = "global", limit: int = 10) -> List[LegalDocument]:
         """
         Search jurisprudence using semantic AI search.
 
         Args:
             query: Legal search query
             jurisdiction: Target jurisdiction (global, argentina, usa, eu)
+            limit: Maximum number of results to return (default: 10)
 
         Returns:
             List of relevant legal documents
