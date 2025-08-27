@@ -1,13 +1,23 @@
 [build]
   publish = "."
 
-# Static file routing - no serverless functions needed
-[[redirects]]
-  from = "/health"
-  to = "/health/index.html"
-  status = 200
+# Edge Functions (JavaScript) - more reliable than Python functions
+[[edge_functions]]
+  function = "health"
+  path = "/health"
 
-[[redirects]]
-  from = "/api/v1/status"
-  to = "/api/v1/status/index.html"
-  status = 200
+[[edge_functions]]
+  function = "status" 
+  path = "/api/v1/status"
+
+[[edge_functions]]
+  function = "register"
+  path = "/api/v1/auth/register"
+
+# Security headers for all routes
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
