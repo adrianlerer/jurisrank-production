@@ -474,6 +474,53 @@ class BibliographyDatabase:
             created_at=datetime.fromisoformat(row[17]),
             updated_at=datetime.fromisoformat(row[18])
         )
+    
+    def update_reference(self, reference: AcademicReference) -> bool:
+        """Actualiza una referencia existente en la base de datos"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            
+            # Actualizar timestamp
+            reference.updated_at = datetime.now()
+            
+            cursor.execute('''
+            UPDATE bibliography_references SET
+                authors = ?, title = ?, year = ?, publication = ?, volume = ?,
+                issue = ?, pages = ?, doi = ?, url = ?, citation_format = ?,
+                reference_type = ?, keywords = ?, abstract = ?, citation_count = ?,
+                relevance_score = ?, jurisprudential_relevance = ?, updated_at = ?
+            WHERE reference_id = ?
+            ''', (
+                json.dumps(reference.authors),
+                reference.title,
+                reference.year,
+                reference.publication,
+                reference.volume,
+                reference.issue,
+                reference.pages,
+                reference.doi,
+                reference.url,
+                reference.citation_format,
+                reference.reference_type,
+                json.dumps(reference.keywords),
+                reference.abstract,
+                reference.citation_count,
+                reference.relevance_score,
+                reference.jurisprudential_relevance,
+                reference.updated_at.isoformat(),
+                reference.reference_id
+            ))
+            
+            success = cursor.rowcount > 0
+            conn.commit()
+            conn.close()
+            
+            return success
+            
+        except Exception as e:
+            print(f"Error updating reference: {e}")
+            return False
 
 
 class BibliographyAnalyzer:
@@ -496,26 +543,84 @@ class BibliographyAnalyzer:
         ]
     
     def calculate_jurisprudential_relevance(self, reference: AcademicReference) -> float:
-        """Calcula la relevancia jurisprudencial de una referencia"""
+        """Calcula la relevancia jurisprudencial de una referencia con algoritmo mejorado"""
         score = 0.0
         
-        # Análisis del título
+        # Texto completo para análisis
+        full_text = f"{reference.title} {reference.publication}"
+        if reference.abstract:
+            full_text += f" {reference.abstract}"
+        if reference.keywords:
+            full_text += f" {' '.join(reference.keywords)}"
+        
+        full_text_lower = full_text.lower()
         title_lower = reference.title.lower()
+        pub_lower = reference.publication.lower()
+        
+        # 1. ANÁLISIS DIRECTO LEGAL (puntuación alta)
         for keyword in self.legal_keywords:
             if keyword in title_lower:
+                score += 0.4  # Mayor peso para título
+            elif keyword in full_text_lower:
+                score += 0.2  # Menor peso para otras partes
+        
+        # 2. ANÁLISIS DE PUBLICACIÓN LEGAL (puntuación alta)
+        legal_publications = ['law', 'legal', 'jurisprudence', 'court', 'justice', 'judicial']
+        if any(word in pub_lower for word in legal_publications):
+            score += 0.6
+        
+        # 3. ANÁLISIS DE TECNOLOGÍA Y AI CON IMPLICACIONES LEGALES (puntuación media)
+        ai_legal_terms = [
+            'ai ethics', 'artificial intelligence ethics', 'algorithm bias', 'algorithmic accountability',
+            'technology governance', 'digital governance', 'ai governance', 'ai regulation',
+            'technology policy', 'digital policy', 'ai policy', 'data protection',
+            'privacy', 'surveillance', 'algorithmic decision', 'automated decision',
+            'machine learning bias', 'fairness', 'transparency', 'explainable ai',
+            'responsible ai', 'trustworthy ai', 'ai safety', 'algorithmic justice'
+        ]
+        
+        for term in ai_legal_terms:
+            if term in full_text_lower:
                 score += 0.3
         
-        # Análisis de la publicación
-        pub_lower = reference.publication.lower()
-        if any(word in pub_lower for word in ['law', 'legal', 'jurisprudence', 'court']):
-            score += 0.5
+        # 4. ANÁLISIS DE IMPACTO SOCIAL Y HUMANO DE LA IA (puntuación baja-media)
+        social_impact_terms = [
+            'human experience', 'social impact', 'societal impact', 'human factors',
+            'user experience', 'human-computer interaction', 'trust', 'acceptance',
+            'adoption', 'behavior', 'psychological', 'anthropomorphism',
+            'human values', 'social implications', 'ethical implications'
+        ]
         
-        # Análisis de palabras clave
+        ai_tech_terms = ['artificial intelligence', 'machine learning', 'ai', 'algorithm', 'automated', 'autonomous']
+        
+        # Si el paper habla de IA/tech Y impacto social/humano, tiene relevancia jurisprudencial indirecta
+        has_ai_tech = any(term in full_text_lower for term in ai_tech_terms)
+        has_social_impact = any(term in full_text_lower for term in social_impact_terms)
+        
+        if has_ai_tech and has_social_impact:
+            score += 0.25  # Relevancia indirecta pero importante
+        
+        # 5. BONIFICACIÓN POR PUBLICACIONES DE ALTA CALIDAD
+        prestigious_journals = [
+            'harvard', 'yale', 'stanford', 'nature', 'science', 'proceedings', 'acm', 'ieee'
+        ]
+        
+        if any(journal in pub_lower for journal in prestigious_journals):
+            score *= 1.1  # 10% de bonificación
+        
+        # 6. ANÁLISIS DE PALABRAS CLAVE ESPECÍFICAS
         if reference.keywords:
             keyword_text = ' '.join(reference.keywords).lower()
+            
+            # Legal keywords en keywords específicos
             for keyword in self.legal_keywords:
                 if keyword in keyword_text:
                     score += 0.2
+            
+            # Tech + social keywords
+            if any(term in keyword_text for term in ai_tech_terms) and \
+               any(term in keyword_text for term in ['ethics', 'policy', 'governance', 'social']):
+                score += 0.15
         
         # Bonificación por citaciones
         if reference.citation_count > 0:
