@@ -13,6 +13,16 @@ from datetime import datetime
 import hashlib
 import sqlite3
 from pathlib import Path
+import sys
+import os
+
+# Importar el parser de URLs académicas
+try:
+    from enhanced_url_parser import AcademicURLParser
+except ImportError:
+    # Si no está en el path, añadirlo
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from enhanced_url_parser import AcademicURLParser
 
 
 @dataclass
@@ -58,6 +68,9 @@ class BibliographyParser:
     """Parser avanzado para diferentes formatos de citas académicas"""
     
     def __init__(self):
+        # Inicializar el parser de URLs académicas
+        self.url_parser = AcademicURLParser()
+        
         self.patterns = {
             'apa_journal': r'([^(]+)\((\d{4})\)[^"]*"([^"]+)"[^,]*,\s*([^,]+),\s*(\d+)\s*\((\d+)\),\s*([0-9\-]+)',
             'apa_book': r'([^(]+)\((\d{4})\)[^"]*"([^"]+)"[^:]*:\s*([^.]+)\.',
@@ -80,7 +93,17 @@ class BibliographyParser:
         """
         reference_text = reference_text.strip()
         
-        # Intentar diferentes patrones de parsing
+        # Primero verificar si es una URL académica
+        url_match = re.search(r'https?://[^\s]+', reference_text)
+        if url_match:
+            url = url_match.group(0)
+            # Intentar parsear como URL académica
+            if any(domain in url for domain in ['ssrn.com', 'arxiv.org', 'pubmed', 'scholar.google', 'researchgate']):
+                url_data = self.url_parser.parse_academic_url(url)
+                if url_data:
+                    return self._create_reference_from_url_data(url_data)
+        
+        # Intentar diferentes patrones de parsing tradicional
         for format_name, pattern in self.patterns.items():
             match = re.search(pattern, reference_text, re.IGNORECASE)
             if match:
@@ -96,7 +119,7 @@ class BibliographyParser:
             authors_str, year, title, journal, volume, issue, pages = match.groups()
             authors = self._parse_authors(authors_str)
             
-            return AcademicReference(
+            reference = AcademicReference(
                 authors=authors,
                 title=title.strip(),
                 year=int(year),
@@ -108,11 +131,17 @@ class BibliographyParser:
                 reference_type="journal"
             )
             
+            # Calcular relevancia jurisprudencial
+            analyzer = BibliographyAnalyzer()
+            reference.jurisprudential_relevance = analyzer.calculate_jurisprudential_relevance(reference)
+            
+            return reference
+            
         elif format_name == 'apa_book':
             authors_str, year, title, publisher = match.groups()
             authors = self._parse_authors(authors_str)
             
-            return AcademicReference(
+            reference = AcademicReference(
                 authors=authors,
                 title=title.strip(),
                 year=int(year),
@@ -120,6 +149,12 @@ class BibliographyParser:
                 citation_format="APA",
                 reference_type="book"
             )
+            
+            # Calcular relevancia jurisprudencial
+            analyzer = BibliographyAnalyzer()
+            reference.jurisprudential_relevance = analyzer.calculate_jurisprudential_relevance(reference)
+            
+            return reference
         
         # Más formatos pueden ser añadidos aquí
         return self._generic_parse(original_text)
@@ -179,7 +214,7 @@ class BibliographyParser:
         else:
             publication = "Unknown Publication"
         
-        return AcademicReference(
+        reference = AcademicReference(
             authors=authors,
             title=title,
             year=year,
@@ -188,6 +223,32 @@ class BibliographyParser:
             reference_type=ref_type,
             citation_format="Generic"
         )
+        
+        # Calcular relevancia jurisprudencial inmediatamente
+        analyzer = BibliographyAnalyzer()
+        reference.jurisprudential_relevance = analyzer.calculate_jurisprudential_relevance(reference)
+        
+        return reference
+    
+    def _create_reference_from_url_data(self, url_data: Dict) -> AcademicReference:
+        """Crea una referencia académica desde datos extraídos de URL"""
+        
+        reference = AcademicReference(
+            authors=url_data.get('authors', ['Unknown Author']),
+            title=url_data.get('title', 'Unknown Title'),
+            year=url_data.get('year', datetime.now().year),
+            publication=url_data.get('publication', 'Unknown Publication'),
+            url=url_data.get('url'),
+            abstract=url_data.get('abstract'),
+            reference_type=url_data.get('reference_type', 'journal'),
+            citation_format="URL"
+        )
+        
+        # Calcular relevancia jurisprudencial inmediatamente
+        analyzer = BibliographyAnalyzer()
+        reference.jurisprudential_relevance = analyzer.calculate_jurisprudential_relevance(reference)
+        
+        return reference
     
     def _determine_reference_type(self, text: str) -> str:
         """Determina el tipo de publicación basándose en palabras clave"""
@@ -413,6 +474,53 @@ class BibliographyDatabase:
             created_at=datetime.fromisoformat(row[17]),
             updated_at=datetime.fromisoformat(row[18])
         )
+    
+    def update_reference(self, reference: AcademicReference) -> bool:
+        """Actualiza una referencia existente en la base de datos"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            
+            # Actualizar timestamp
+            reference.updated_at = datetime.now()
+            
+            cursor.execute('''
+            UPDATE bibliography_references SET
+                authors = ?, title = ?, year = ?, publication = ?, volume = ?,
+                issue = ?, pages = ?, doi = ?, url = ?, citation_format = ?,
+                reference_type = ?, keywords = ?, abstract = ?, citation_count = ?,
+                relevance_score = ?, jurisprudential_relevance = ?, updated_at = ?
+            WHERE reference_id = ?
+            ''', (
+                json.dumps(reference.authors),
+                reference.title,
+                reference.year,
+                reference.publication,
+                reference.volume,
+                reference.issue,
+                reference.pages,
+                reference.doi,
+                reference.url,
+                reference.citation_format,
+                reference.reference_type,
+                json.dumps(reference.keywords),
+                reference.abstract,
+                reference.citation_count,
+                reference.relevance_score,
+                reference.jurisprudential_relevance,
+                reference.updated_at.isoformat(),
+                reference.reference_id
+            ))
+            
+            success = cursor.rowcount > 0
+            conn.commit()
+            conn.close()
+            
+            return success
+            
+        except Exception as e:
+            print(f"Error updating reference: {e}")
+            return False
 
 
 class BibliographyAnalyzer:
@@ -435,26 +543,84 @@ class BibliographyAnalyzer:
         ]
     
     def calculate_jurisprudential_relevance(self, reference: AcademicReference) -> float:
-        """Calcula la relevancia jurisprudencial de una referencia"""
+        """Calcula la relevancia jurisprudencial de una referencia con algoritmo mejorado"""
         score = 0.0
         
-        # Análisis del título
+        # Texto completo para análisis
+        full_text = f"{reference.title} {reference.publication}"
+        if reference.abstract:
+            full_text += f" {reference.abstract}"
+        if reference.keywords:
+            full_text += f" {' '.join(reference.keywords)}"
+        
+        full_text_lower = full_text.lower()
         title_lower = reference.title.lower()
+        pub_lower = reference.publication.lower()
+        
+        # 1. ANÁLISIS DIRECTO LEGAL (puntuación alta)
         for keyword in self.legal_keywords:
             if keyword in title_lower:
+                score += 0.4  # Mayor peso para título
+            elif keyword in full_text_lower:
+                score += 0.2  # Menor peso para otras partes
+        
+        # 2. ANÁLISIS DE PUBLICACIÓN LEGAL (puntuación alta)
+        legal_publications = ['law', 'legal', 'jurisprudence', 'court', 'justice', 'judicial']
+        if any(word in pub_lower for word in legal_publications):
+            score += 0.6
+        
+        # 3. ANÁLISIS DE TECNOLOGÍA Y AI CON IMPLICACIONES LEGALES (puntuación media)
+        ai_legal_terms = [
+            'ai ethics', 'artificial intelligence ethics', 'algorithm bias', 'algorithmic accountability',
+            'technology governance', 'digital governance', 'ai governance', 'ai regulation',
+            'technology policy', 'digital policy', 'ai policy', 'data protection',
+            'privacy', 'surveillance', 'algorithmic decision', 'automated decision',
+            'machine learning bias', 'fairness', 'transparency', 'explainable ai',
+            'responsible ai', 'trustworthy ai', 'ai safety', 'algorithmic justice'
+        ]
+        
+        for term in ai_legal_terms:
+            if term in full_text_lower:
                 score += 0.3
         
-        # Análisis de la publicación
-        pub_lower = reference.publication.lower()
-        if any(word in pub_lower for word in ['law', 'legal', 'jurisprudence', 'court']):
-            score += 0.5
+        # 4. ANÁLISIS DE IMPACTO SOCIAL Y HUMANO DE LA IA (puntuación baja-media)
+        social_impact_terms = [
+            'human experience', 'social impact', 'societal impact', 'human factors',
+            'user experience', 'human-computer interaction', 'trust', 'acceptance',
+            'adoption', 'behavior', 'psychological', 'anthropomorphism',
+            'human values', 'social implications', 'ethical implications'
+        ]
         
-        # Análisis de palabras clave
+        ai_tech_terms = ['artificial intelligence', 'machine learning', 'ai', 'algorithm', 'automated', 'autonomous']
+        
+        # Si el paper habla de IA/tech Y impacto social/humano, tiene relevancia jurisprudencial indirecta
+        has_ai_tech = any(term in full_text_lower for term in ai_tech_terms)
+        has_social_impact = any(term in full_text_lower for term in social_impact_terms)
+        
+        if has_ai_tech and has_social_impact:
+            score += 0.25  # Relevancia indirecta pero importante
+        
+        # 5. BONIFICACIÓN POR PUBLICACIONES DE ALTA CALIDAD
+        prestigious_journals = [
+            'harvard', 'yale', 'stanford', 'nature', 'science', 'proceedings', 'acm', 'ieee'
+        ]
+        
+        if any(journal in pub_lower for journal in prestigious_journals):
+            score *= 1.1  # 10% de bonificación
+        
+        # 6. ANÁLISIS DE PALABRAS CLAVE ESPECÍFICAS
         if reference.keywords:
             keyword_text = ' '.join(reference.keywords).lower()
+            
+            # Legal keywords en keywords específicos
             for keyword in self.legal_keywords:
                 if keyword in keyword_text:
                     score += 0.2
+            
+            # Tech + social keywords
+            if any(term in keyword_text for term in ai_tech_terms) and \
+               any(term in keyword_text for term in ['ethics', 'policy', 'governance', 'social']):
+                score += 0.15
         
         # Bonificación por citaciones
         if reference.citation_count > 0:
