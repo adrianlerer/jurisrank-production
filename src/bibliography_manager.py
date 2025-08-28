@@ -97,8 +97,14 @@ class BibliographyParser:
         url_match = re.search(r'https?://[^\s]+', reference_text)
         if url_match:
             url = url_match.group(0)
-            # Intentar parsear como URL académica
-            if any(domain in url for domain in ['ssrn.com', 'arxiv.org', 'pubmed', 'scholar.google', 'researchgate']):
+            # Intentar parsear como URL académica o legal
+            academic_domains = ['ssrn.com', 'arxiv.org', 'pubmed', 'scholar.google', 'researchgate']
+            legal_indicators = ['abogados.com', 'derecho', 'legal', 'juridico', 'tribunal', 'corte', 'ombudsman', 'compliance', 'law']
+            
+            is_academic_url = any(domain in url for domain in academic_domains)
+            is_legal_url = any(indicator in url.lower() for indicator in legal_indicators)
+            
+            if is_academic_url or is_legal_url:
                 url_data = self.url_parser.parse_academic_url(url)
                 if url_data:
                     return self._create_reference_from_url_data(url_data)
@@ -528,8 +534,23 @@ class BibliographyAnalyzer:
     
     def __init__(self):
         self.legal_keywords = [
+            # English legal terms
             'jurisprudence', 'legal', 'court', 'law', 'justice', 'precedent',
-            'constitutional', 'statute', 'regulation', 'litigation', 'judicial'
+            'constitutional', 'statute', 'regulation', 'litigation', 'judicial',
+            'ombudsman', 'compliance', 'governance', 'corporate governance',
+            
+            # Spanish legal terms
+            'derecho', 'legal', 'tribunal', 'corte', 'justicia', 'jurisprudencia',
+            'constitucional', 'estatuto', 'regulación', 'normativa', 'judicial',
+            'abogado', 'jurídico', 'defensor del pueblo', 'ombudsman',
+            'cumplimiento', 'compliance', 'gobernanza', 'gobernanza corporativa',
+            'función estratégica', 'estudios jurídicos', 'bufete',
+            
+            # AI + Legal terms (both languages)
+            'ai governance', 'ia governance', 'gobernanza de ia', 'gobernanza ia',
+            'artificial intelligence law', 'derecho de ia', 'regulación ia',
+            'ombudsman corporativo', 'corporate ombudsman', 'ombudsman de ia',
+            'ai compliance', 'compliance ia', 'cumplimiento ia'
         ]
         
         self.psychological_keywords = [
@@ -565,7 +586,13 @@ class BibliographyAnalyzer:
                 score += 0.2  # Menor peso para otras partes
         
         # 2. ANÁLISIS DE PUBLICACIÓN LEGAL (puntuación alta)
-        legal_publications = ['law', 'legal', 'jurisprudence', 'court', 'justice', 'judicial']
+        legal_publications = [
+            # English
+            'law', 'legal', 'jurisprudence', 'court', 'justice', 'judicial',
+            # Spanish
+            'derecho', 'juridico', 'jurídico', 'tribunal', 'corte', 'abogados',
+            'estudios juridicos', 'estudios jurídicos', 'bufete', 'legal'
+        ]
         if any(word in pub_lower for word in legal_publications):
             score += 0.6
         
