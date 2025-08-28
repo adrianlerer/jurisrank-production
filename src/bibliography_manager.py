@@ -13,6 +13,16 @@ from datetime import datetime
 import hashlib
 import sqlite3
 from pathlib import Path
+import sys
+import os
+
+# Importar el parser de URLs académicas
+try:
+    from enhanced_url_parser import AcademicURLParser
+except ImportError:
+    # Si no está en el path, añadirlo
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from enhanced_url_parser import AcademicURLParser
 
 
 @dataclass
@@ -58,6 +68,9 @@ class BibliographyParser:
     """Parser avanzado para diferentes formatos de citas académicas"""
     
     def __init__(self):
+        # Inicializar el parser de URLs académicas
+        self.url_parser = AcademicURLParser()
+        
         self.patterns = {
             'apa_journal': r'([^(]+)\((\d{4})\)[^"]*"([^"]+)"[^,]*,\s*([^,]+),\s*(\d+)\s*\((\d+)\),\s*([0-9\-]+)',
             'apa_book': r'([^(]+)\((\d{4})\)[^"]*"([^"]+)"[^:]*:\s*([^.]+)\.',
@@ -80,7 +93,17 @@ class BibliographyParser:
         """
         reference_text = reference_text.strip()
         
-        # Intentar diferentes patrones de parsing
+        # Primero verificar si es una URL académica
+        url_match = re.search(r'https?://[^\s]+', reference_text)
+        if url_match:
+            url = url_match.group(0)
+            # Intentar parsear como URL académica
+            if any(domain in url for domain in ['ssrn.com', 'arxiv.org', 'pubmed', 'scholar.google', 'researchgate']):
+                url_data = self.url_parser.parse_academic_url(url)
+                if url_data:
+                    return self._create_reference_from_url_data(url_data)
+        
+        # Intentar diferentes patrones de parsing tradicional
         for format_name, pattern in self.patterns.items():
             match = re.search(pattern, reference_text, re.IGNORECASE)
             if match:
@@ -96,7 +119,7 @@ class BibliographyParser:
             authors_str, year, title, journal, volume, issue, pages = match.groups()
             authors = self._parse_authors(authors_str)
             
-            return AcademicReference(
+            reference = AcademicReference(
                 authors=authors,
                 title=title.strip(),
                 year=int(year),
@@ -108,11 +131,17 @@ class BibliographyParser:
                 reference_type="journal"
             )
             
+            # Calcular relevancia jurisprudencial
+            analyzer = BibliographyAnalyzer()
+            reference.jurisprudential_relevance = analyzer.calculate_jurisprudential_relevance(reference)
+            
+            return reference
+            
         elif format_name == 'apa_book':
             authors_str, year, title, publisher = match.groups()
             authors = self._parse_authors(authors_str)
             
-            return AcademicReference(
+            reference = AcademicReference(
                 authors=authors,
                 title=title.strip(),
                 year=int(year),
@@ -120,6 +149,12 @@ class BibliographyParser:
                 citation_format="APA",
                 reference_type="book"
             )
+            
+            # Calcular relevancia jurisprudencial
+            analyzer = BibliographyAnalyzer()
+            reference.jurisprudential_relevance = analyzer.calculate_jurisprudential_relevance(reference)
+            
+            return reference
         
         # Más formatos pueden ser añadidos aquí
         return self._generic_parse(original_text)
@@ -179,7 +214,7 @@ class BibliographyParser:
         else:
             publication = "Unknown Publication"
         
-        return AcademicReference(
+        reference = AcademicReference(
             authors=authors,
             title=title,
             year=year,
@@ -188,6 +223,32 @@ class BibliographyParser:
             reference_type=ref_type,
             citation_format="Generic"
         )
+        
+        # Calcular relevancia jurisprudencial inmediatamente
+        analyzer = BibliographyAnalyzer()
+        reference.jurisprudential_relevance = analyzer.calculate_jurisprudential_relevance(reference)
+        
+        return reference
+    
+    def _create_reference_from_url_data(self, url_data: Dict) -> AcademicReference:
+        """Crea una referencia académica desde datos extraídos de URL"""
+        
+        reference = AcademicReference(
+            authors=url_data.get('authors', ['Unknown Author']),
+            title=url_data.get('title', 'Unknown Title'),
+            year=url_data.get('year', datetime.now().year),
+            publication=url_data.get('publication', 'Unknown Publication'),
+            url=url_data.get('url'),
+            abstract=url_data.get('abstract'),
+            reference_type=url_data.get('reference_type', 'journal'),
+            citation_format="URL"
+        )
+        
+        # Calcular relevancia jurisprudencial inmediatamente
+        analyzer = BibliographyAnalyzer()
+        reference.jurisprudential_relevance = analyzer.calculate_jurisprudential_relevance(reference)
+        
+        return reference
     
     def _determine_reference_type(self, text: str) -> str:
         """Determina el tipo de publicación basándose en palabras clave"""
