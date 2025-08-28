@@ -1,0 +1,42 @@
+{
+  "bibliography_manager": {
+    "database_path": "jurisrank_bibliography.db",
+    "default_citation_format": "APA",
+    "enable_jurisrank_integration": true,
+    "auto_analyze_relevance": true,
+    "max_references_per_import": 100
+  },
+  "jurisrank_api": {
+    "base_url": "https://api.jurisrank.com",
+    "api_key": null,
+    "timeout": 30,
+    "retry_attempts": 3,
+    "enable_caching": true
+  },
+  "analysis_settings": {
+    "jurisprudential_weight": 0.4,
+    "basic_relevance_weight": 0.4,
+    "topics_weight": 0.2,
+    "min_relevance_threshold": 1.0,
+    "enable_precedent_search": true,
+    "max_precedents_per_reference": 5
+  },
+  "export_formats": {
+    "supported": ["json", "apa", "bibtex", "enhanced_apa", "enhanced_bibtex"],
+    "default": "json",
+    "include_analysis_data": true
+  },
+  "web_interface": {
+    "host": "0.0.0.0",
+    "port": 5001,
+    "debug": false,
+    "enable_cors": true,
+    "max_upload_size": "10MB"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "bibliography_manager.log",
+    "max_size": "10MB",
+    "backup_count": 5
+  }
+}

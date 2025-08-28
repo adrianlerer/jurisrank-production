@@ -1,0 +1,16 @@
+# JurisRank Bibliography Manager Dependencies
+Flask==2.3.3
+Flask-CORS==4.0.0
+requests==2.31.0
+sqlite3  # Built-in Python module
+
+# Development and testing
+pytest==7.4.2
+pytest-cov==4.1.0
+
+# Optional: Enhanced functionality
+pandas==2.0.3
+numpy==1.24.4
+
+# Supervisor for Python service management
+supervisor==4.2.5
