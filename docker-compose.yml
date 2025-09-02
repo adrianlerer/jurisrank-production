@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  jurisrank-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - jurisrank-network
+
+  # Development mode service (optional)
+  jurisrank-dev:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - ./logs:/app/logs
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - PYTHONUNBUFFERED=1
+      - DEV_MODE=1
+    command: ["python3", "mock_api_server.py"]
+    profiles:
+      - dev
+    networks:
+      - jurisrank-network
+
+networks:
+  jurisrank-network:
+    driver: bridge

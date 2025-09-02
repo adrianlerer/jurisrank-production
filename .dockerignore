@@ -1,0 +1,67 @@
+# Git and version control
+.git
+.gitignore
+
+# Python cache and environments
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+venv_testing/
+env/
+ENV/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Documentation and development files
+*.md
+!README.md
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+
+# Test files and reports
+test_*.py
+tests/
+*_test.py
+pytest_cache/
+.coverage
+htmlcov/
+audit_results.json
+*.log
+
+# Development scripts
+deploy_to_netlify.sh
+verify_setup.py
+validate_netlify_deployment.py
+
+# Netlify specific
+netlify/
+netlify.toml
+.netlify
+
+# Large database files (will be created at runtime)
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
