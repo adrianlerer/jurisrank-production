@@ -1,0 +1,179 @@
+# JurisRank P7 Enhanced - Constitutional Art 19 CN Analysis Prompt Kit
+# Integration: Coan & Surden requirements + AI Limitations mitigation + Knowledge Graph
+
+name: constitutional_art19_enhanced
+version: "1.0.0"
+description: "Análisis constitucional Art 19 CN con integración Bazterrica-Arriola y mitigación de limitaciones de IA"
+research_base: "Academic AI Limitations + Coan & Surden + JurisRank P7 methodology"
+
+# CONSTITUTIONAL CONTEXT (Knowledge Graph Integration)
+constitutional_framework:
+  article: "Art 19 CN"
+  text: "Las acciones privadas de los hombres que de ningún modo ofendan al orden y a la moral pública, ni perjudiquen a un tercero, están sólo reservadas a Dios, y exentas de la autoridad de los magistrados."
+  
+  key_precedents:
+    bazterrica_1986:
+      citation: "CSJN, Bazterrica, Gustavo Mario, Fallos 308:1392 (29/08/1986)"
+      doctrine: "Test de daño a terceros como límite constitucional"
+      holding: "Tenencia para consumo personal no constituye delito si no genera daño efectivo a terceros"
+      
+    arriola_2009:
+      citation: "CSJN, Arriola, Sebastián y otros, Fallos 332:1963 (25/08/2009)"
+      doctrine: "Dignidad humana y neutralidad moral del Estado"
+      holding: "Estado no puede imponer modelo particular de virtud; solo prevenir daño entre ciudadanos"
+      evolution_from_bazterrica: "Incorpora estándares internacionales de DDHH y concepto de dignidad"
+
+  constitutional_principles:
+    - personal_autonomy: "Autodeterminación en esfera privada"
+    - harm_to_others_test: "Límite constitucional basado en daño efectivo a terceros"
+    - constitutional_morality: "Neutralidad moral estatal post-Arriola"
+    - legality_principle: "Reserva legal para intervención estatal"
+
+# PROMPT TEMPLATE (AI Limitations Mitigation)
+template: |
+  # ANÁLISIS CONSTITUCIONAL ART 19 CN - JURISRANK P7 ENHANCED
+  
+  ## CONTEXTO CONSTITUCIONAL
+  Artículo 19 CN: "{article_text}"
+  
+  Precedentes fundamentales verificados:
+  - **Bazterrica (1986)**: {bazterrica_citation} - {bazterrica_doctrine}
+  - **Arriola (2009)**: {arriola_citation} - {arriola_doctrine}
+  
+  ## CASO BAJO ANÁLISIS
+  **Hechos del caso**: {case_facts}
+  **Cuestión constitucional**: {constitutional_question}
+  
+  ## METODOLOGÍA DE ANÁLISIS (Anti-Hallucination + Multi-Path)
+  
+  ### 1. VERIFICACIÓN DE CITAS REQUERIDA
+  - Todas las citas deben incluir: Tribunal, caso, Fallos/citación, fecha
+  - Solo usar precedentes verificados en knowledge graph constitucional
+  - Marcar cualquier información no verificable como "[REQUIERE VERIFICACIÓN]"
+  
+  ### 2. ANÁLISIS MULTI-PATH (Reducción sensibilidad de prompt)
+  
+  #### Path A: Test de Autonomía Personal (Bazterrica-Arriola)
+  1. ¿La conducta se desarrolla en esfera privada del individuo?
+  2. ¿Existe expectativa razonable de privacidad?
+  3. ¿La conducta trasciende hacia la esfera pública?
+  
+  #### Path B: Test de Daño a Terceros (Estándar constitucional)
+  1. ¿Existe daño **efectivo** a terceros identificables?
+  2. ¿El daño es **directo** y **mensurable**?
+  3. ¿La relación causal es clara y demostrable?
+  
+  #### Path C: Test de Moralidad Constitucional (Post-Arriola)
+  1. ¿La intervención se basa en imposición de moral particular?
+  2. ¿Se respeta la neutralidad moral del Estado?
+  3. ¿Es compatible con dignidad humana y pluralismo?
+  
+  ### 3. CONTRA-ARGUMENTOS OBLIGATORIOS
+  Para cada conclusión, proporcionar:
+  - Interpretación restrictiva alternativa
+  - Argumentos en favor de intervención estatal
+  - Precedentes que podrían sustentar posición contraria
+  
+  ### 4. EVOLUCIÓN JURISPRUDENCIAL TRAZABLE
+  - Mostrar evolución Bazterrica → Arriola → Tendencias actuales
+  - Identificar cambios en doctrina constitucional
+  - Citar influencia de tratados internacionales (Art 75 inc 22 CN)
+
+# OUTPUT SCHEMA (Structured Response for Verification)
+output_schema:
+  constitutional_analysis:
+    - esfera_privada_analysis:
+        description: "Análisis de si la conducta pertenece a la esfera privada protegida"
+        verified_citations: []
+        confidence_level: "high|medium|low"
+        
+    - harm_to_others_test:
+        description: "Aplicación del test constitucional de daño a terceros"
+        precedent_application: "Bazterrica/Arriola standard applied"
+        verified_citations: []
+        conclusion: "harm_identified|no_harm_identified|requires_further_analysis"
+        
+    - constitutional_morality:
+        description: "Análisis de moralidad constitucional post-Arriola"
+        state_neutrality_assessment: ""
+        dignity_considerations: ""
+        verified_citations: []
+        
+  contra_arguments:
+    - restrictive_interpretation:
+        description: "Argumentos para interpretación restrictiva del Art 19"
+        supporting_precedents: []
+        
+    - state_intervention_justification:
+        description: "Posibles justificaciones para intervención estatal"
+        constitutional_grounds: []
+        
+  precedent_evolution:
+    - bazterrica_doctrine: ""
+    - arriola_evolution: ""
+    - current_trends: ""
+    - international_influence: ""
+    
+  constitutional_conclusion:
+    - primary_holding: ""
+    - confidence_score: 0.0  # 0.0 to 1.0
+    - requires_human_review: true|false
+    - citation_verification_status: "all_verified|some_unverified|requires_verification"
+    - alternative_interpretations: []
+
+# VERIFICATION REQUIREMENTS (Coan & Surden Compliance)
+verification_requirements:
+  citation_verification:
+    - all_citations_must_include_verifiable_source: true
+    - require_official_publication_reference: true
+    - mark_unverifiable_claims: true
+    
+  transparency_requirements:
+    - log_prompt_kit_version: true
+    - log_ai_model_used: true
+    - log_knowledge_graph_paths: true
+    - require_confidence_scoring: true
+    
+  human_oversight_triggers:
+    - confidence_score_below: 0.8
+    - novel_constitutional_interpretation: true
+    - conflicting_precedent_analysis: true
+    - high_stakes_constitutional_issue: true
+
+# INTEGRATION POINTS
+integration:
+  knowledge_graph:
+    - constitutional_articles: ["Art 19 CN", "Art 75 inc 22 CN"]
+    - precedent_network: ["BAZTERRICA_1986", "ARRIOLA_2009"]
+    - principle_relationships: ["personal_autonomy", "harm_to_others", "constitutional_morality"]
+    
+  rag_verification:
+    - verify_all_case_citations: true
+    - cross_reference_constitutional_text: true
+    - validate_precedent_holdings: true
+    
+  audit_logging:
+    - log_analysis_type: "constitutional_ranking"
+    - log_precedents_used: []
+    - log_verification_results: {}
+    - log_confidence_scores: {}
+
+# EXAMPLE USAGE
+example_inputs:
+  case_facts: "Individuo encontrado en domicilio con pequeña cantidad de sustancia para consumo personal, sin menores presentes ni comercialización"
+  constitutional_question: "¿Constituye la tenencia para consumo personal una conducta protegida por Art 19 CN?"
+  
+example_expected_output:
+  constitutional_analysis:
+    esfera_privada_analysis:
+      description: "La conducta se desarrolla en domicilio particular, zona de máxima protección constitucional"
+      verified_citations: ["Arriola - Fallos 332:1963"]
+      confidence_level: "high"
+  
+# QUALITY ASSURANCE
+quality_checks:
+  - all_citations_verified: required
+  - contra_arguments_provided: required
+  - confidence_score_calculated: required
+  - alternative_interpretations_considered: required
+  - precedent_evolution_traced: required

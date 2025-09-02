@@ -1,0 +1,228 @@
+# JurisRank P7 Enhanced - Constitutional Balancing Test Prompt Kit
+# Integration: Multi-factor balancing + Precedent evolution + AI limitations mitigation
+
+name: balancing_test_constitutional
+version: "1.0.0" 
+description: "Test de balancing constitucional con integración de precedentes CSJN y metodología P7"
+research_base: "Constitutional balancing doctrine + Coan & Surden + JurisRank precedent analysis"
+
+# BALANCING TEST FRAMEWORK
+constitutional_framework:
+  balancing_doctrine:
+    foundation: "CSJN jurisprudence on constitutional rights balancing"
+    key_precedents:
+      - "Kot, Samuel - Fallos 241:291 (1958) - Individual rights vs collective interests"
+      - "Bazterrica - Fallos 308:1392 (1986) - Personal autonomy vs state police power"
+      - "Arriola - Fallos 332:1963 (2009) - Individual dignity vs moral enforcement"
+      
+  balancing_factors:
+    individual_rights:
+      - constitutional_text_protection: "Express constitutional protection level"
+      - fundamental_nature: "Core vs peripheral constitutional right"
+      - individual_impact: "Severity of restriction on individual"
+      
+    state_interests:
+      - compelling_interest: "Compelling governmental interest identification" 
+      - public_safety: "Public safety and order considerations"
+      - constitutional_mandate: "Constitutional obligation to regulate"
+      
+    proportionality:
+      - necessity: "Least restrictive means available"
+      - fit: "Means substantially related to ends"
+      - proportionality_stricto_sensu: "Benefits vs burdens analysis"
+
+# PROMPT TEMPLATE
+template: |
+  # TEST DE BALANCING CONSTITUCIONAL - JURISRANK P7 ENHANCED
+  
+  ## MARCO CONSTITUCIONAL PARA BALANCING
+  
+  ### Precedentes de Balancing Verificados:
+  - **Kot (1958)**: Estableció principios de balancing entre derechos individuales e intereses colectivos
+  - **Bazterrica (1986)**: Balancing entre autonomía personal y poder de policía estatal  
+  - **Arriola (2009)**: Balancing con incorporación de dignidad humana y estándares internacionales
+  
+  ## CASO PARA BALANCING
+  **Derecho individual afectado**: {individual_right}
+  **Interés estatal invocado**: {state_interest}
+  **Nivel de escrutinio aplicable**: {scrutiny_level}
+  **Hechos relevantes**: {relevant_facts}
+  
+  ## METODOLOGÍA DE BALANCING (Anti-AI Limitations)
+  
+  ### PASO 1: IDENTIFICACIÓN Y PESO DEL INTERÉS ESTATAL
+  
+  #### 1.1 Naturaleza del Interés Estatal
+  - ¿Es un interés gubernamental compelling/imperioso?
+  - ¿Tiene base constitucional expresa o implícita?
+  - ¿Se relaciona con protección de derechos de terceros?
+  
+  #### 1.2 Verificación de Precedentes Estatales
+  **REQUIERE CITAS VERIFICADAS**: Solo usar precedentes confirmados en knowledge graph
+  - Precedentes que reconocen este interés estatal: [CITAR CON FALLOS]
+  - Precedentes que rechazan similar interés: [CITAR CON FALLOS]
+  - Evolución jurisprudencial del interés: [TRAZAR EVOLUCIÓN]
+  
+  #### 1.3 Peso del Interés (Scoring P7)
+  - Peso bajo (1-3): Interés administrativo o de conveniencia
+  - Peso medio (4-6): Interés importante pero no fundamental  
+  - Peso alto (7-9): Interés compelling con base constitucional
+  - Peso máximo (10): Protección de derechos fundamentales de terceros
+  
+  ### PASO 2: ANÁLISIS DE INTRUSIÓN EN DERECHO INDIVIDUAL
+  
+  #### 2.1 Naturaleza del Derecho Afectado
+  - ¿Está expresamente protegido en la Constitución?
+  - ¿Es considerado fundamental por la CSJN?
+  - ¿Forma parte del núcleo esencial del derecho?
+  
+  #### 2.2 Severidad de la Intrusión
+  - Intrusión mínima: Regulación que no afecta núcleo del derecho
+  - Intrusión sustancial: Limitación significativa del ejercicio
+  - Intrusión severa: Impedimento del ejercicio del derecho
+  - Prohibición total: Anulación completa del derecho
+  
+  #### 2.3 Precedentes sobre el Derecho Individual
+  **VERIFICACIÓN OBLIGATORIA**: 
+  - Casos donde CSJN protegió este derecho: [CITAR]
+  - Casos donde CSJN permitió limitación: [CITAR]  
+  - Estándares de protección establecidos: [CITAR]
+  
+  ### PASO 3: TEST DE PROPORCIONALIDAD INTEGRADO
+  
+  #### 3.1 Idoneidad (Suitability)
+  - ¿La medida es adecuada para alcanzar el fin perseguido?
+  - ¿Existe relación empírica entre medio y fin?
+  - Precedente de referencia: [CITAR CASO SIMILAR]
+  
+  #### 3.2 Necesidad (Necessity)
+  - ¿Existen medios alternativos menos restrictivos?
+  - ¿Se evaluaron alternativas menos invasivas?
+  - Análisis de least restrictive means: [DETALLAR]
+  
+  #### 3.3 Proporcionalidad Stricto Sensu
+  - Beneficios esperados de la medida: [CUANTIFICAR]
+  - Costos en términos de derechos: [CUANTIFICAR]
+  - ¿Los beneficios justifican los costos constitucionales?
+  
+  ### PASO 4: CONTRA-ARGUMENTOS OBLIGATORIOS
+  
+  #### 4.1 Argumentos Pro-Restricción
+  - Precedentes que justificarían mayor deferencia al Estado
+  - Circunstancias excepcionales que podrían justificar restricción
+  - Intereses colectivos que podrían prevalecer
+  
+  #### 4.2 Argumentos Pro-Protección  
+  - Precedentes que exigen máxima protección del derecho
+  - Riesgos de precedente restrictivo ("slippery slope")
+  - Valores constitucionales en juego
+  
+  ## APLICACIÓN AL CASO CONCRETO
+  [Aplicar metodología paso a paso al caso específico]
+
+# OUTPUT SCHEMA
+output_schema:
+  balancing_analysis:
+    step1_state_interest:
+      interest_identification: ""
+      constitutional_basis: ""
+      precedent_support: []
+      interest_weight_score: 0  # 1-10 scale
+      verification_status: "verified|requires_verification"
+      
+    step2_individual_right:
+      right_identification: ""
+      constitutional_protection_level: "express|implied|fundamental|ordinary" 
+      intrusion_severity: "minimal|substantial|severe|total_prohibition"
+      precedent_protection_level: []
+      
+    step3_proportionality:
+      suitability:
+        means_end_relationship: ""
+        empirical_evidence: ""
+        precedent_analysis: []
+        
+      necessity:
+        alternative_means_considered: []
+        least_restrictive_analysis: ""
+        necessity_conclusion: ""
+        
+      proportionality_stricto_sensu:
+        benefits_analysis: ""
+        costs_analysis: ""
+        balancing_conclusion: ""
+        
+  contra_arguments:
+    pro_restriction_arguments:
+      - argument: ""
+        precedent_support: []
+        strength_assessment: "weak|moderate|strong"
+        
+    pro_protection_arguments:
+      - argument: ""
+        precedent_support: []
+        strength_assessment: "weak|moderate|strong"
+        
+  balancing_conclusion:
+    primary_conclusion: "state_interest_prevails|individual_right_prevails|requires_legislative_solution"
+    confidence_score: 0.0  # 0.0 to 1.0
+    precedent_consistency: "consistent|creates_tension|novel_application"
+    requires_human_review: true|false
+    alternative_outcomes: []
+    
+  precedent_evolution:
+    historical_trend: ""
+    current_doctrine: ""
+    future_implications: ""
+
+# VERIFICATION REQUIREMENTS
+verification_requirements:
+  precedent_citation:
+    - require_court_name: true
+    - require_case_name: true  
+    - require_fallos_citation: true
+    - require_date: true
+    
+  balancing_factors:
+    - quantify_interests_where_possible: true
+    - cite_precedent_for_each_factor: true
+    - assess_alternative_outcomes: true
+    
+  transparency:
+    - show_balancing_methodology: true
+    - disclose_competing_considerations: true
+    - acknowledge_uncertainty_areas: true
+
+# INTEGRATION WITH JURISRANK P7
+integration:
+  knowledge_graph:
+    - precedent_network: ["constitutional_balancing_cases"]
+    - principle_relationships: ["proportionality", "necessity", "suitability"]
+    
+  evolutionary_analysis:
+    - trace_balancing_evolution: true
+    - identify_doctrinal_shifts: true
+    - predict_future_trends: true
+    
+  p7_scoring:
+    - apply_evolutionary_weighting: true
+    - consider_precedent_authority: true
+    - factor_judicial_consensus: true
+
+# EXAMPLE CASE
+example:
+  individual_right: "Libertad de expresión (Art 14 CN)"
+  state_interest: "Protección del orden público y seguridad nacional"
+  scrutiny_level: "Escrutinio estricto"
+  relevant_facts: "Manifestación política en espacio público con potencial alteración del orden"
+  
+  expected_analysis:
+    step1_state_interest:
+      interest_weight_score: 8
+      constitutional_basis: "Art 14 CN - reglamentación razonable"
+    step2_individual_right:
+      constitutional_protection_level: "express"  
+      intrusion_severity: "substantial"
+    balancing_conclusion:
+      primary_conclusion: "requires_case_specific_analysis"
+      confidence_score: 0.75
