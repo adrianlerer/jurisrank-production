@@ -1,0 +1,71 @@
+{
+  "name": "@jurisrank/sdk",
+  "version": "0.3.0",
+  "description": "Official JavaScript/TypeScript SDK for JurisRank AI Constitutional Analysis API",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "dev": "rollup -c rollup.config.js -w",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src --ext .ts,.js",
+    "lint:fix": "eslint src --ext .ts,.js --fix",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "keywords": [
+    "jurisrank",
+    "legal",
+    "ai",
+    "constitutional",
+    "analysis",
+    "law",
+    "argentina",
+    "jurisprudence",
+    "api",
+    "sdk"
+  ],
+  "author": {
+    "name": "Ignacio Adrian Lerer",
+    "email": "iadrianlerer@gmail.com",
+    "url": "https://github.com/adrianlerer"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrianlerer/jurisrank-production.git",
+    "directory": "sdk/js"
+  },
+  "bugs": {
+    "url": "https://github.com/adrianlerer/jurisrank-production/issues"
+  },
+  "homepage": "https://github.com/adrianlerer/jurisrank-production#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.6.2",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "jest": "^29.7.0",
+    "rollup": "^3.29.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
