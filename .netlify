@@ -1,1 +1,18 @@
-# Force clean build - no cache
+# Netlify Auto-Deploy Disabled
+# 
+# This repository is now configured for Docker-based deployment
+# instead of Netlify serverless functions.
+# 
+# Netlify auto-deploy has been disabled to prevent deployment conflicts
+# and failed deploy notifications.
+#
+# For production deployment, use Docker:
+#   docker-compose up -d
+#
+# For development:
+#   python enhanced_api_integration.py
+#   # or
+#   docker-compose --profile dev up
+#
+# Created: 2024-09-02
+# Reason: Migrated from Netlify Edge Functions to Docker containerization

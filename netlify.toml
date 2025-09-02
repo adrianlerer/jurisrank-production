@@ -1,5 +1,9 @@
+# Netlify Auto-Deploy Disabled
+# This repository has migrated to Docker-based deployment
+# See DOCKER_DEPLOYMENT.md for deployment instructions
 [build]
   publish = "."
+  ignore = "exit 0"  # Always skip builds
 
 # Edge Functions - Complete JurisRank API
 [[edge_functions]]
