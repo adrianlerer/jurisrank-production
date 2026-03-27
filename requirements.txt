@@ -3,7 +3,7 @@ Flask==2.3.3
 Flask-CORS==4.0.0
 requests==2.31.0
 beautifulsoup4==4.12.2
-sqlite3  # Built-in Python module
+# sqlite3 is a built-in Python module, do NOT install via pip
 
 # Development and testing
 pytest==7.4.2
