@@ -1,9 +1,18 @@
-# Netlify Auto-Deploy Disabled
-# This repository has migrated to Docker-based deployment
-# See DOCKER_DEPLOYMENT.md for deployment instructions
+# Netlify Deployment - Edge Functions API
+# This repository deploys JurisRank as Netlify Edge Functions (Deno/JS)
+# Python/Docker deployment is handled separately via DOCKER_DEPLOYMENT.md
+
 [build]
   publish = "."
-  ignore = "exit 0"  # Always skip builds
+  command = "echo 'No build required - Edge Functions only'"
+  ignore = "exit 0"  # Skip auto-rebuilds on push
+
+[build.environment]
+  # Disable Python pip dependency installation
+  # Edge Functions are JavaScript/Deno, no Python needed
+  PYTHON_VERSION = "3.11"
+  NODE_VERSION = "18"
+  NPM_FLAGS = "--no-optional"
 
 # Edge Functions - Complete JurisRank API
 [[edge_functions]]
@@ -11,7 +20,7 @@
   path = "/health"
 
 [[edge_functions]]
-  function = "status" 
+  function = "status"
   path = "/api/v1/status"
 
 [[edge_functions]]
@@ -45,3 +54,6 @@
     X-Content-Type-Options = "nosniff"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
